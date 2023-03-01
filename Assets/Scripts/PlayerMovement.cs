@@ -7,27 +7,40 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    //player movement
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
+    //jump
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
     Vector3 velocity;
     public bool isGrounded;
+    public bool isJump;
 
+    //audio
     public AudioSource audioSource;
     public AudioClip footstepsNormal;
     public AudioClip footstepsFlesh;
 
+    //crouch
     private Vector3 scaleChange;
     private GameObject plr;
 
+    //player Attack
+    public bool CanAttack;
+    public float AttackCooldown = 0.05f;
+    public float attackCooldownNormal = 3f;
+    public GameObject projectile;
+    public float projectileSpeed;
+    public Transform projectileSpawn;
+    
+
     void Start()
     {
-  
+        CanAttack = true;
     }
 
     void Update()
@@ -41,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        //fireball attack
+        if(Input.GetButtonDown("Fire1"))
+        {
+            FireballAttack();
+        }
     }
 
 
@@ -48,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position,groundDistance,groundMask);
+
 
         if(isGrounded && velocity.y < 0)
         {
@@ -61,26 +81,22 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-    //Jump 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButtonDown("Jump"))
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Jump();
         }
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
-        /*if(Input.GetKeyDown("escape"))
-        {
-            Application.Quit();
-            Debug.Log("Quit");
-        }*/
 
     //interact with objects
         if(Input.GetKeyDown("e"))
         {
             
         }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -92,5 +108,36 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void Jump()
+    {
+ 
+        if(isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJump = true;
+        }
+
+        else if(isJump)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJump = false;
+        }
+
+    }
+
+    public void FireballAttack()
+    {
+        GameObject fireball = Instantiate(projectile, projectileSpawn) as GameObject;
+        Rigidbody rb = fireball.GetComponent<Rigidbody>();
+        
+        rb.velocity = Camera.main.transform.forward * projectileSpeed;
+        StartCoroutine(ResetAttackCooldown());
+    }
     
+    IEnumerator ResetAttackCooldown()
+    {
+
+        yield return new WaitForSeconds(AttackCooldown);
+
+    }
 }
