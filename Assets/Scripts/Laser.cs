@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     private LineRenderer lr;
 
-
+    //https://www.youtube.com/watch?v=mGd3nYXj1Oc&t=12s
 
     // Start is called before the first frame update
     void Start()
