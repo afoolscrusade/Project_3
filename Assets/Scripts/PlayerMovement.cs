@@ -36,11 +36,17 @@ public class PlayerMovement : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed;
     public Transform projectileSpawn;
+
+    //Testing Laser
+    public Transform LaserSpawn;
+    private LineRenderer lr;
+    public GameObject LaserObject;
     
 
     void Start()
     {
         CanAttack = true;
+        lr = GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -59,6 +65,12 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             FireballAttack();
+        }
+        
+        //Testing Laser
+        if(Input.GetButtonDown("Fire2"))
+        {
+            LaserAttack();
         }
     }
 
@@ -139,5 +151,11 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(AttackCooldown);
 
+    }
+
+    //Laser Testing
+        public void LaserAttack()
+    {
+        GameObject Laser = Instantiate(LaserObject, LaserSpawn) as GameObject;
     }
 }
