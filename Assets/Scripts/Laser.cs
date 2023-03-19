@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private LineRenderer lr;
+    public GameObject laserPrefab;
+    public GameObject firePoint;
 
-    //https://www.youtube.com/watch?v=mGd3nYXj1Oc&t=12s
+    private GameObject spawnedLaser;
 
     // Start is called before the first frame update
     void Start()
     {
-        lr = GetComponent<LineRenderer>();
+        spawnedLaser = Instantiate (laserPrefab, firePoint.transform) as GameObject;
     }
 
     // Update is called once per frame
@@ -19,23 +20,35 @@ public class Laser : MonoBehaviour
     {      
 
         
-        lr.SetPosition(0, transform.position);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if(Input.GetButtonDown("Fire2"))
         {
-            if (hit.collider)
-            {
-                lr.SetPosition(1, hit.point);
-            }
+           EnableLaser();
         }
-        else lr.SetPosition(1, transform.forward*5000);
-    
+        if(Input.GetButton("Fire2"))
+        {
+            UpdateLaser();
+        }
+        if(Input.GetButtonUp("Fire2"))
+        {
+            DisableLaser();
+        }
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void EnableLaser()
     {
-        Debug.Log(other);
-        Destroy(gameObject);
+        spawnedLaser.SetActive (true);
+    }
+
+    void UpdateLaser()
+    {
+        if(firePoint != null)
+        {
+        spawnedLaser.transform.position = firePoint.transform.position;
+        }
+    }
+    void DisableLaser()
+    {
+        spawnedLaser.SetActive (false);
     }
 }

@@ -38,15 +38,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform projectileSpawn;
 
     //Testing Laser
-    public Transform LaserSpawn;
+    /*public Transform LaserSpawn;
     private LineRenderer lr;
-    public GameObject LaserObject;
+    public GameObject LaserObject;*/
     
 
     void Start()
     {
         CanAttack = true;
-        lr = GetComponent<LineRenderer>();
+        //lr = GetComponent<LineRenderer>();
     }
 
     void Update()
@@ -68,10 +68,10 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Testing Laser
-        if(Input.GetButtonDown("Fire2"))
+        /*if(Input.GetButtonDown("Fire2"))
         {
             LaserAttack();
-        }
+        }*/
     }
 
 
@@ -154,8 +154,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Laser Testing
-        public void LaserAttack()
+        /*public void LaserAttack()
     {
         GameObject Laser = Instantiate(LaserObject, LaserSpawn) as GameObject;
-    }
+    }*/
 }
