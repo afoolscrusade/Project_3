@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -849,28 +849,14 @@ GameObject:
   - component: {fileID: 290833888}
   - component: {fileID: 290833887}
   - component: {fileID: 290833886}
-  - component: {fileID: 290833885}
+  - component: {fileID: 290833890}
   m_Layer: 6
-  m_Name: NPC
+  m_Name: Kevin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &290833885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290833884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9acb029758ecaf44905420b64e860bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayTime: 4
-  dialogBox: {fileID: 1306659181}
 --- !u!135 &290833886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -942,13 +928,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290833884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.43, y: 1.28, z: 6.22}
+  m_LocalPosition: {x: -4.43, y: 1.28, z: -20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290833890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290833884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6cdc0cea4d8264aa38de2c742c3ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Kevin
+    sentences:
+    - I was an experiment!
+    - This too was an experiment!
+    - The experiment was a success!
 --- !u!1 &317773710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1856666879}
   audioMixer: {fileID: 24100000, guid: af6b37cee2764834cba33ad6513aa0b2, type: 2}
+  dialogueBox: {fileID: 1306659181}
 --- !u!1 &420530352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1670,8 @@ GameObject:
   - component: {fileID: 591138928}
   - component: {fileID: 591138929}
   - component: {fileID: 591138930}
+  - component: {fileID: 591138931}
+  - component: {fileID: 591138932}
   m_Layer: 3
   m_Name: PlayerController
   m_TagString: Player
@@ -1737,6 +1744,33 @@ MonoBehaviour:
   projectile: {fileID: 6842915393866620460, guid: cb523cd2f99fce24d83830ef1f92430c, type: 3}
   projectileSpeed: 10
   projectileSpawn: {fileID: 1270774165}
+--- !u!114 &591138931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591138927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9acb029758ecaf44905420b64e860bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 1306659181}
+--- !u!136 &591138932
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591138927}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &649777588
 GameObject:
   m_ObjectHideFlags: 3
@@ -2527,7 +2561,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.020626087, y: 0.08291522, z: 0.001716496, w: 0.99634165}
+  m_LocalRotation: {x: -0.020626083, y: 0.08291522, z: 0.0017164956, w: 0.99634165}
   m_LocalPosition: {x: -0.8398622, y: 1.7923563, z: -4.872389}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2758,6 +2792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 317773712}
   dialogueText: {fileID: 1981184529}
+  dialogueBox: {fileID: 1306659181}
 --- !u!4 &1050172684
 Transform:
   m_ObjectHideFlags: 0
@@ -5012,7 +5047,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085018359}
-  m_LocalRotation: {x: -0.020626085, y: 0.0829152, z: 0.0017164957, w: 0.99634165}
+  m_LocalRotation: {x: -0.020626083, y: 0.0829152, z: 0.0017164954, w: 0.99634165}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

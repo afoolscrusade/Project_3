@@ -12,6 +12,8 @@ public class OptionsMenu : MonoBehaviour
     
     public AudioMixer audioMixer;
 
+    public GameObject dialogueBox;
+
     public void SetVolume (float volume)
     {
         audioMixer.SetFloat("Volume", volume);
@@ -43,7 +45,7 @@ public class OptionsMenu : MonoBehaviour
             }
         }
 
-        if (GameIsPaused && pauseMenuUI != null)
+        if (GameIsPaused && pauseMenuUI != null || dialogueBox.activeInHierarchy == true)
         {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

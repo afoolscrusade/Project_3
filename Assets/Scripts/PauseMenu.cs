@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        //Cursor.visible = false;
+        
 
     }
 
@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-       // Cursor.visible = true;
+       
 
     }
 

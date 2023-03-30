@@ -8,11 +8,16 @@ public class Dialogue_Manager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
+    public GameObject dialogueBox;
+
+    
     private Queue<string> sentences;
+
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -45,6 +50,9 @@ public class Dialogue_Manager : MonoBehaviour
     void EndDialogue()
     {
         Debug.Log("End");
+        dialogueBox.SetActive(false);
+        
+
     }
 
 }
