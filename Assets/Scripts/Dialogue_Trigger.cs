@@ -6,6 +6,17 @@ public class Dialogue_Trigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    public GameObject levelOneObject;
+    public GameObject levelTwoObject;
+    public GameObject levelThreeObject;
+
+
+    void Start()
+    {
+        levelOneObject.SetActive(false);
+        levelTwoObject.SetActive(false);
+        levelThreeObject.SetActive(false);
+    }
     private void Update()
     {
         //NPC Interact
@@ -31,6 +42,16 @@ public class Dialogue_Trigger : MonoBehaviour
 
         FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
 
+        if(GetComponent<Collider>().CompareTag("Kevin"))
+        {
+            
+            levelOneObject.SetActive(true);
+            
+        }
+
+
     }
+
+    
 
 }

@@ -6,11 +6,12 @@ public class NPC_Script : MonoBehaviour
 {
     public GameObject dialogueBox;
 
-    
+
 
     void Start()
     {
         dialogueBox.SetActive(false);
+
         
     }
 
@@ -23,13 +24,9 @@ public class NPC_Script : MonoBehaviour
     
     public void Interact()
     {
-        Debug.Log("Interact");
-        
-
-        
+        //Debug.Log("Interact");      
         dialogueBox.SetActive(true);
-        
-        
+
 
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
 
 
     }
@@ -174,4 +176,16 @@ public class PlayerMovementTutorial : MonoBehaviour
 {
     GameObject Laser = Instantiate(LaserObject, LaserSpawn) as GameObject;
 }*/
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+        //Send player to different scenes
+        if (other.CompareTag("LevelOne"))
+        {
+            Debug.Log("Send Me to Level One!");
+            SceneManager.LoadScene("levelOne");
+        }
+    }
 }
