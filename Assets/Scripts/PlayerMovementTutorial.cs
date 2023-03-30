@@ -47,6 +47,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float projectileSpeed;
     public Transform projectileSpawn;
 
+    //NPC
+    Dialogue_Trigger dialogueTrigger;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -68,6 +71,19 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        //NPC Interact
+        if (Input.GetKeyDown("x"))
+        {
+            Debug.Log("NPC");
+            float interactRange = 2f;
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            foreach (Collider collider in colliderArray)
+                if (collider.TryGetComponent(out NPC_Script NPC_Script))
+                {
+                    NPC_Script.Interact();
+                }
+        }
     }
 
     private void FixedUpdate()

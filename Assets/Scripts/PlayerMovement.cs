@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown("c"))
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
+            Debug.Log("NPC");
         }
         if(Input.GetKeyUp("c"))
         {
@@ -72,6 +73,19 @@ public class PlayerMovement : MonoBehaviour
         {
             LaserAttack();
         }*/
+
+        //NPC interaction
+        if (Input.GetKeyDown("x"))
+        {
+            Debug.Log("NPC");
+            float interactRange = 2f;
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            foreach (Collider collider in colliderArray)
+                if (collider.TryGetComponent(out NPC_Script NPC_Script))
+                {
+                    NPC_Script.Interact();
+                }
+        }
     }
 
 
@@ -105,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     //interact with objects
         if(Input.GetKeyDown("e"))
         {
-            
+    
         }
 
 
