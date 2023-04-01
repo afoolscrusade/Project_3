@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
+
+
     [Header("Movement")]
     public float moveSpeed;
 
@@ -47,6 +50,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed;
     public Transform projectileSpawn;
+
 
     private void Start()
     {
