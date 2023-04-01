@@ -8,6 +8,7 @@ TagManager:
   - LevelTwo
   - LevelThree
   - Kevin
+  - Health
   layers:
   - Default
   - TransparentFX
