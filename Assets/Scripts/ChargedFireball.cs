@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballScript : MonoBehaviour
+public class ChargedFireball : MonoBehaviour
 {
     [SerializeField]
     private float speed;
@@ -15,7 +15,7 @@ public class FireballScript : MonoBehaviour
     private void Start()
     {
         rb.velocity = Camera.main.transform.forward * speed;
-        DestroyFireball(); 
+        DestroyFireball();
     }
     void OnTriggerEnter(Collider other)
     {

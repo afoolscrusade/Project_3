@@ -50,10 +50,25 @@ public class PlayerMovementTutorial : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed;
     public Transform projectileSpawn;
+    [SerializeField]
+    private GameObject fireball;
+
+    // Charge Shot
+    [SerializeField]
+    private GameObject chargedFireball;
+    public float chargeSpeed;
+    public float chargeTime;
+    bool isCharging;
+
+    // Player Health
+    public int maxHealth;
+    public int currentHealth;
+    public float timeInvincible;
 
 
     private void Start()
     {
+        currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -108,10 +123,25 @@ public class PlayerMovementTutorial : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
+        // Starts charging fireball
+        if (Input.GetKey(KeyCode.Mouse0) && chargeTime < 3)
+        {
+            isCharging = true;
+            if (isCharging == true)
+            {
+                chargeTime += Time.deltaTime * chargeSpeed;
+            }
+        }
+
         //fireball attack
         if (Input.GetButtonDown("Fire1"))
         {
             FireballAttack();
+            chargeTime = 0;
+        }
+        else if (Input.GetButtonUp("Fire1") && chargeTime >= 2)
+        {
+            ReleaseCharge();
         }
 
         //Testing Laser
@@ -161,11 +191,22 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public void FireballAttack()
     {
-        GameObject fireball = Instantiate(projectile, projectileSpawn) as GameObject;
-        Rigidbody rb = fireball.GetComponent<Rigidbody>();
+        Instantiate(projectile, projectileSpawn);
+        //Rigidbody rb = fireball.GetComponent<Rigidbody>();
 
-        rb.velocity = Camera.main.transform.forward * projectileSpeed;
+        //rb.velocity = Camera.main.transform.forward * projectileSpeed;
         StartCoroutine(ResetAttackCooldown());
+    }
+
+    void ReleaseCharge()
+    {
+        Instantiate(chargedFireball, projectileSpawn);
+        //rigidbody rb2 = chargedFireball.GetComponent<Rigidbody>();
+
+        //rb.velocity = Camera.main.transform.forward * projectileSpeed;
+        isCharging = false;
+        chargeTime = 0;
+
     }
 
     IEnumerator ResetAttackCooldown()
