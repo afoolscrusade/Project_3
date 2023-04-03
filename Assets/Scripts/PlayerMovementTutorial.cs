@@ -238,6 +238,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player should be dead");
+            SceneManager.LoadScene("GameOver");
         }
     }
 

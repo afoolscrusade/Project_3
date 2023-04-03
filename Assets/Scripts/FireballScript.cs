@@ -25,7 +25,7 @@ public class FireballScript : MonoBehaviour
             enemyHealth.TakeDamage(1);
         }
         Debug.Log(other);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void DestroyFireball()

@@ -25,7 +25,7 @@ public class ChargedFireball : MonoBehaviour
             enemyHealth.TakeDamage(2);
         }
         Debug.Log(other);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void DestroyFireball()

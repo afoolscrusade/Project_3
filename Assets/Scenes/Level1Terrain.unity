@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2335496686440344501, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344502, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -1637,6 +1641,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a697ded47e8309a4c86b0b9153b6e42c, type: 3}
       propertyPath: m_Name
       value: Moss 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a697ded47e8309a4c86b0b9153b6e42c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a697ded47e8309a4c86b0b9153b6e42c, type: 3}
@@ -3307,6 +3315,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2335496686440344501, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344502, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -3719,11 +3731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4162585492702103681, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016752826
+      value: 0.016752861
       objectReference: {fileID: 0}
     - target: {fileID: 4162585492702103681, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000058572907
+      value: 0.00005857302
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493098609481, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3743,7 +3755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493098609481, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 4.005611e-18
+      value: -4.005611e-18
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493098609481, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3751,7 +3763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493098609481, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -6.7115186e-20
+      value: 6.7115186e-20
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493618282768, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_Name
@@ -3771,7 +3783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493618282769, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_CollideAgainst.m_Bits
-      value: 129
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4162585493618282770, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_Follow
@@ -3851,11 +3863,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4162585494479946438, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.01675255
+      value: 0.016752515
       objectReference: {fileID: 0}
     - target: {fileID: 4162585494479946438, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000117139585
+      value: 0.000117139345
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37b0921fd3d91845a1e9b6ab7c43d30, type: 3}
@@ -4931,11 +4943,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4562929648690770780, guid: 3fa1208eecca778458ece0ea2c147f56, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016752807
+      value: 0.016752876
       objectReference: {fileID: 0}
     - target: {fileID: 4562929648690770780, guid: 3fa1208eecca778458ece0ea2c147f56, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000058572834
+      value: 0.000058573078
       objectReference: {fileID: 0}
     - target: {fileID: 4562929648690770780, guid: 3fa1208eecca778458ece0ea2c147f56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5228,6 +5240,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344500, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
       propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335496686440344501, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
+      propertyPath: m_Speed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344502, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
@@ -7329,6 +7345,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2335496686440344501, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344502, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -7733,6 +7753,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5576743025282093271, guid: 06d7c9b449594e341ad37fed8f7b2cde, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d7c9b449594e341ad37fed8f7b2cde, type: 3}
 --- !u!1001 &878685607
@@ -7894,6 +7918,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344500, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
       propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335496686440344501, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
+      propertyPath: m_Speed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2335496686440344502, guid: 595fe848b6f2e674a8d8115a97cdb360, type: 3}
@@ -10231,6 +10259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moss 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d55a953020415b44eb766653f96df8e7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d55a953020415b44eb766653f96df8e7, type: 3}
 --- !u!4 &1248027492 stripped
@@ -12009,6 +12041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moss 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ebcfa4281153ce4bbafabc229650940, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ebcfa4281153ce4bbafabc229650940, type: 3}
 --- !u!4 &1496102318 stripped
@@ -12146,6 +12182,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ebcfa4281153ce4bbafabc229650940, type: 3}
       propertyPath: m_Name
       value: Moss 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ebcfa4281153ce4bbafabc229650940, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ebcfa4281153ce4bbafabc229650940, type: 3}
@@ -15103,6 +15143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moss 2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d55a953020415b44eb766653f96df8e7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d55a953020415b44eb766653f96df8e7, type: 3}
 --- !u!1001 &1977971612
@@ -15406,6 +15450,10 @@ PrefabInstance:
     - target: {fileID: 5576743025282093268, guid: 06d7c9b449594e341ad37fed8f7b2cde, type: 3}
       propertyPath: attackRange
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576743025282093271, guid: 06d7c9b449594e341ad37fed8f7b2cde, type: 3}
+      propertyPath: m_Speed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d7c9b449594e341ad37fed8f7b2cde, type: 3}
