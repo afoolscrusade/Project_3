@@ -61,13 +61,17 @@ public class PlayerMovementTutorial : MonoBehaviour
     bool isCharging;
 
     // Player Health
-    public int maxHealth;
-    public int currentHealth;
-    public float timeInvincible;
+    public float maxHealth;
+    public float currentHealth;
+    public float invincibleTimer;
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
 
 
-    private void Start()
+
+    private void Awake()
     {
+        maxHealth = 10;
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -89,6 +93,16 @@ public class PlayerMovementTutorial : MonoBehaviour
         else
             rb.drag = 0;
 
+        // Player invinsibility frames
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
 
 
     }
@@ -207,6 +221,24 @@ public class PlayerMovementTutorial : MonoBehaviour
         isCharging = false;
         chargeTime = 0;
 
+    }
+
+    public void UpdateHealth(float amount) // receives value and changes health accordingly
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player should be dead");
+        }
     }
 
     IEnumerator ResetAttackCooldown()

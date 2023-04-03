@@ -19,6 +19,11 @@ public class ChargedFireball : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        EnemyAi enemyHealth = other.GetComponent<EnemyAi>();
+        if (other.tag == "Enemy")
+        {
+            enemyHealth.TakeDamage(2);
+        }
         Debug.Log(other);
         Destroy(gameObject);
     }

@@ -1,8 +1,9 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAiShoot : MonoBehaviour
+public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -22,10 +23,14 @@ public class EnemyAiShoot : MonoBehaviour
     bool alreadyAttacked;
     public GameObject projectile;
     public Transform projectileSpawn;
+    public float cooldown = 10f;
 
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    // Enemy type
+    public int enemyID;
 
     private void Awake()
     {
@@ -79,21 +84,40 @@ public class EnemyAiShoot : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Instantiate(projectile, gameObject.transform);
+            if (enemyID == 1)
+            {
+                transform.LookAt(player);
+                Instantiate(projectile, projectileSpawn.transform);
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
             ///End of attack code
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+        }
+        if (enemyID == 0)
+        {
+            agent.speed *= 2;
+            agent.SetDestination(player.position);
+            if (!playerInSightRange)
+            {
+                agent.speed /= 2;
+                Patroling();
+            }
         }
     }
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldown);
     }
 
     public void TakeDamage(int damage)
@@ -113,5 +137,14 @@ public class EnemyAiShoot : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        PlayerMovementTutorial player = collision.gameObject.GetComponent<PlayerMovementTutorial>();
+        if (collision.gameObject.tag == "Player")
+        {
+            player.UpdateHealth(-1);
+        }
     }
 }

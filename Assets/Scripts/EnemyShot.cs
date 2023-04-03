@@ -19,12 +19,19 @@ public class EnemyShot : MonoBehaviour
         DestroyProjectile();
     }
 
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }*/
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy")
+        PlayerMovementTutorial player = other.GetComponent<PlayerMovementTutorial>();
+        if (other.tag == "Player")
         {
-            Destroy(gameObject);
+            player.UpdateHealth(-1);
         }
+        Destroy(gameObject);
     }
     void DestroyProjectile()
     {
