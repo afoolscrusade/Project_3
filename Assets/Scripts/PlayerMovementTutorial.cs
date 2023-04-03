@@ -262,7 +262,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (other.CompareTag("LevelOne"))
         {
             Debug.Log("Send Me to Level One!");
-            SceneManager.LoadScene("levelOne");
+            SceneManager.LoadScene("Level1Terrain");
         }
     }
 }
