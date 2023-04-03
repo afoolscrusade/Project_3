@@ -101,7 +101,7 @@ public class EnemyAi : MonoBehaviour
         }
         if (enemyID == 0)
         {
-            agent.speed *= 2;
+            //agent.speed *= 2;
             agent.SetDestination(player.position);
             if (!playerInSightRange)
             {
