@@ -24,6 +24,7 @@ public class OptionsMenu : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
+            Debug.Log("Pause");
             if (GameIsPaused)
             {
                 Resume();
