@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovementTutorial : MonoBehaviour
 {
@@ -67,16 +68,36 @@ public class PlayerMovementTutorial : MonoBehaviour
     public float timeInvincible = 2.0f;
     bool isInvincible;
 
+    // Potions
+    public static int HealthP = 1;
+    public static int ManaP = 1;
+    public TextMeshProUGUI HealthPText;
+
+    public TextMeshProUGUI ManaPText;
+
+    public float maxMana;
+    public float currentMana;
+    private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
+    private Coroutine regen;
+
+
+
 
 
     private void Awake()
     {
         maxHealth = 10;
+        maxMana = 10;
         currentHealth = maxHealth;
+        currentMana = maxMana;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        //Potions
+        SetCurrentHP();
+        SetCurrentMP();
     }
 
     private void Update()
@@ -102,6 +123,21 @@ public class PlayerMovementTutorial : MonoBehaviour
             {
                 isInvincible = false;
             }
+        }
+
+        //Potions use
+        if (Input.GetKeyDown("1") && HealthP > 0)
+        {
+            HealthP -= 1;
+            SetCurrentHP();
+            UpdateHealth(+5);
+        }
+
+        if (Input.GetKeyDown("2") && ManaP > 0)
+        {
+            ManaP -= 1;
+            SetCurrentMP();
+            UpdateMana(+5);
         }
 
 
@@ -148,14 +184,16 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //fireball attack
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && currentMana > 0)
         {
             FireballAttack();
             chargeTime = 0;
+            UpdateMana(-1);
         }
-        else if (Input.GetButtonUp("Fire1") && chargeTime >= 2)
+        else if (Input.GetButtonUp("Fire1") && chargeTime >= 2 && currentMana > 4)
         {
             ReleaseCharge();
+            UpdateMana(-5);
         }
 
         //Testing Laser
@@ -242,6 +280,22 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
     }
 
+    // Mana
+    public void UpdateMana(float amount) // receives value and changes Mana accordingly
+    {
+        currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
+        if (currentMana < maxMana)
+        {
+            if (regen != null)
+                
+                    StopCoroutine(regen);
+                
+            regen = StartCoroutine(RegenMana());
+        
+        }
+   
+    }
+
     IEnumerator ResetAttackCooldown()
     {
 
@@ -265,5 +319,43 @@ public class PlayerMovementTutorial : MonoBehaviour
             Debug.Log("Send Me to Level One!");
             SceneManager.LoadScene("Level1Terrain");
         }
+
+        if (other.CompareTag("Health"))
+        {
+            HealthP += 1;
+            SetCurrentHP();
+        }
+        if (other.CompareTag("Mana"))
+        {
+            ManaP += 1;
+            SetCurrentMP();
+        }
     }
+
+        
+        //Potion collection
+        public void SetCurrentHP()
+    {
+        HealthPText.text = "HP: " + HealthP.ToString();
+    }
+
+        public void SetCurrentMP()
+    {
+        ManaPText.text = "MP: " + ManaP.ToString();
+    }
+
+    private IEnumerator RegenMana()
+    {
+        yield return new WaitForSeconds(2);
+
+        while(currentMana < maxMana)
+        {
+            currentMana += maxMana / 100;
+
+            yield return regenTick;
+
+        }
+        regen = null;
+    }
+
 }

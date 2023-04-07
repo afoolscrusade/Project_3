@@ -19,7 +19,7 @@ public class NPC_Script : MonoBehaviour
     
     {
         //added pickup button to this script to make it work
-        if (Input.GetKeyDown("e"))
+       /* if (Input.GetKeyDown("e"))
         {
             Debug.Log("Pickup");
             
@@ -31,7 +31,7 @@ public class NPC_Script : MonoBehaviour
                     ItemPickup.Pickup();
                     
                 }
-        }
+        }*/
     }
     
    
