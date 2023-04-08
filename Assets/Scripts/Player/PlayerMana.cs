@@ -7,7 +7,7 @@ public class PlayerMana : MonoBehaviour
 {
     public PlayerMovementTutorial playerMana;
     public Image fillImage;
-    public Slider slider;
+    private Slider slider;
     private float fillValue;
     // Start is called before the first frame update
     private void Awake()

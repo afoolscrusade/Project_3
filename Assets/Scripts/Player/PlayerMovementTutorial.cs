@@ -126,14 +126,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //Potions use
-        if (Input.GetKeyDown("1") && HealthP > 0)
+        if (Input.GetKeyDown("1") && HealthP > 0 && currentHealth < maxHealth)
         {
             HealthP -= 1;
             SetCurrentHP();
             UpdateHealth(+5);
         }
 
-        if (Input.GetKeyDown("2") && ManaP > 0)
+        if (Input.GetKeyDown("2") && ManaP > 0 && currentMana < maxMana)
         {
             ManaP -= 1;
             SetCurrentMP();
