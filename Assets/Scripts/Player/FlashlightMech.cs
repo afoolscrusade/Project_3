@@ -6,7 +6,7 @@ public class FlashlightMech : MonoBehaviour
 {
     public bool isOn = false;
     public GameObject lightSource;
-    public AudioSource clickSound;
+    //public AudioSource clickSound;
     public bool failSafe = false;
 
     // Start is called before the first frame update
@@ -18,13 +18,13 @@ public class FlashlightMech : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("f"))
+        if(Input.GetKeyDown("f"))
         {
             if(isOn == false && failSafe == false)
             {
                 failSafe = true;
                 lightSource.SetActive(true);
-                clickSound.Play();
+                //clickSound.Play();
                 isOn = true;
                 StartCoroutine(FailSafe());
             }
@@ -32,7 +32,7 @@ public class FlashlightMech : MonoBehaviour
             {
                 failSafe = true;
                 lightSource.SetActive(false);
-                clickSound.Play();
+                //clickSound.Play();
                 isOn = false;
                 StartCoroutine(FailSafe());
             }

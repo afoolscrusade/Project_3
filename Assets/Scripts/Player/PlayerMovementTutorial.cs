@@ -54,6 +54,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     [SerializeField]
     private GameObject fireball;
 
+    public Camera camera;
+
     // Charge Shot
     [SerializeField]
     private GameObject chargedFireball;
@@ -243,19 +245,58 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public void FireballAttack()
     {
-        Instantiate(projectile, projectileSpawn);
+    
         //Rigidbody rb = fireball.GetComponent<Rigidbody>();
 
         //rb.velocity = Camera.main.transform.forward * projectileSpeed;
+
+        //new fireball shooting
+        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
+            targetPoint = hit.point;
+        else
+            targetPoint = ray.GetPoint(75);
+
+        Vector3 direction = targetPoint - projectileSpawn.position;
+
+        GameObject currentFireball = Instantiate(projectile, projectileSpawn.position, Quaternion.identity);
+
+        currentFireball.transform.forward = direction.normalized;
+
+        currentFireball.GetComponent<Rigidbody>().AddForce(direction.normalized * projectileSpeed, ForceMode.Impulse);
+
+        
+
         StartCoroutine(ResetAttackCooldown());
     }
 
     void ReleaseCharge()
     {
-        Instantiate(chargedFireball, projectileSpawn);
+        //Instantiate(chargedFireball, projectileSpawn);
         //rigidbody rb2 = chargedFireball.GetComponent<Rigidbody>();
 
         //rb.velocity = Camera.main.transform.forward * projectileSpeed;
+
+        //new fireballattack
+        Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
+            targetPoint = hit.point;
+        else
+            targetPoint = ray.GetPoint(75);
+
+        Vector3 direction = targetPoint - projectileSpawn.position;
+
+        GameObject currentFireball = Instantiate(chargedFireball, projectileSpawn.position, Quaternion.identity);
+
+        currentFireball.transform.forward = direction.normalized;
+
+        currentFireball.GetComponent<Rigidbody>().AddForce(direction.normalized * projectileSpeed, ForceMode.Impulse);
         isCharging = false;
         chargeTime = 0;
 
