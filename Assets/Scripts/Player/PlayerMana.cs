@@ -36,7 +36,7 @@ public class PlayerMana : MonoBehaviour
         }
         else if (fillValue > slider.maxValue / 3) // Changes Mana bar color to green when above 1/3 max Mana
         {
-            fillImage.color = Color.green;
+            fillImage.color = Color.blue;
         }
         slider.value = fillValue;
     }
