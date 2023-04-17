@@ -14,6 +14,9 @@ TagManager:
   - Mana
   - Projectile
   - Crystal
+  - Zoe
+  - Rognic
+  - Flomph
   layers:
   - Default
   - TransparentFX

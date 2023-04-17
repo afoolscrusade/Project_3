@@ -21,7 +21,7 @@ public class Dialogue_Trigger : MonoBehaviour
     private void Update()
     {
         //NPC Interact
-        if (Input.GetKeyDown("x"))
+        if (Input.GetKeyDown("x") || Input.GetButtonDown("Interact"))
         {
             Debug.Log("NPC");
             
@@ -43,13 +43,26 @@ public class Dialogue_Trigger : MonoBehaviour
 
         FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
 
-        if(GetComponent<Collider>().CompareTag("Kevin"))
+        if(GetComponent<Collider>().CompareTag("LevelOne"))
         {
             
             levelOneObject.SetActive(true);
             
         }
 
+        if(GetComponent<Collider>().CompareTag("LevelTwo"))
+        {
+            
+            levelTwoObject.SetActive(true);
+            
+        }
+        
+        if(GetComponent<Collider>().CompareTag("LevelThree"))
+        {
+            
+            levelThreeObject.SetActive(true);
+            
+        }
 
     }
 

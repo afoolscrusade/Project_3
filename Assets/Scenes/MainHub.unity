@@ -402,7 +402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b777143fdf3ce814d92e9d0fe4ad9536, type: 3}
       propertyPath: m_Name
-      value: Talking
+      value: Flomph
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b777143fdf3ce814d92e9d0fe4ad9536, type: 3}
+      propertyPath: m_TagString
+      value: Flomph
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b777143fdf3ce814d92e9d0fe4ad9536, type: 3}
@@ -445,6 +449,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.068957, y: 3.394683, z: 1.9256835}
   m_Center: {x: 0.021588564, y: 1.6877072, z: -0.016953232}
+--- !u!114 &40482045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40482041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6cdc0cea4d8264aa38de2c742c3ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Flomph
+    sentences:
+    - The bridge to level one is open.
+  levelOneObject: {fileID: 715537531}
+  levelTwoObject: {fileID: 1438993483}
+  levelThreeObject: {fileID: 1916295748}
 --- !u!1 &44763133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,7 +1928,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290833884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.492, y: -3.24, z: -34.5}
+  m_LocalPosition: {x: -21.54, y: -11.3, z: -0.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3256,6 +3279,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8607588194064360081, guid: f4795e2208413dd4ea17a2facbaeda0d, type: 3}
   m_PrefabInstance: {fileID: 484266812}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &490797809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: b777143fdf3ce814d92e9d0fe4ad9536, type: 3}
+  m_PrefabInstance: {fileID: 40482040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &490797812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490797809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.034609564, y: 0.033017192, z: 0.047301102}
+  m_Center: {x: 0.00013863071, y: -0.00093666255, z: 0.01789664}
 --- !u!1001 &499332799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4353,7 +4394,7 @@ GameObject:
   - component: {fileID: 715537532}
   m_Layer: 0
   m_Name: LevelOne
-  m_TagString: Untagged
+  m_TagString: LevelOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7696,7 +7737,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
       propertyPath: m_Name
-      value: Idle
+      value: Zoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_TagString
+      value: Zoe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
@@ -7739,6 +7784,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.1469374, z: 1}
   m_Center: {x: 0, y: 2.1831002, z: 0}
+--- !u!114 &1133241880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133241876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6cdc0cea4d8264aa38de2c742c3ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Zoe
+    sentences:
+    - The bridge to level 3 is open.
+  levelOneObject: {fileID: 715537531}
+  levelTwoObject: {fileID: 1438993483}
+  levelThreeObject: {fileID: 1916295748}
 --- !u!1 &1143089861
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,7 +9253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
       propertyPath: m_Name
-      value: Offensive Idle
+      value: Rognic
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_TagString
+      value: Rognic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
@@ -9232,6 +9300,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1366937842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366937838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6cdc0cea4d8264aa38de2c742c3ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Rognic
+    sentences:
+    - The bridge to level two is open.
+  levelOneObject: {fileID: 715537531}
+  levelTwoObject: {fileID: 1438993483}
+  levelThreeObject: {fileID: 1916295748}
 --- !u!1 &1373491804
 GameObject:
   m_ObjectHideFlags: 0
@@ -9638,7 +9725,7 @@ GameObject:
   - component: {fileID: 1438993484}
   m_Layer: 0
   m_Name: LevelTwo
-  m_TagString: Untagged
+  m_TagString: LevelTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12406,7 +12493,7 @@ GameObject:
   - component: {fileID: 1916295749}
   m_Layer: 0
   m_Name: LevelThree
-  m_TagString: Untagged
+  m_TagString: LevelThree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

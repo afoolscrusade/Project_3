@@ -22,6 +22,18 @@ public class OptionsMenu : MonoBehaviour
         
     void Update()
     {
+        if(Input.GetButtonDown("Pause"))
+        {
+        Debug.Log("pauseme");
+        if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
         if (Input.GetKeyDown("escape"))
         {
             Debug.Log("Pause");

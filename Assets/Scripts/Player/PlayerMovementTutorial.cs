@@ -145,14 +145,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //Potions use
-        if (Input.GetKeyDown("1") && HealthP > 0 && currentHealth < maxHealth)
+        if ((Input.GetKeyDown("1") || Input.GetButtonDown("Usehealth")) && HealthP > 0 && currentHealth < maxHealth)
         {
             HealthP -= 1;
             SetCurrentHP();
             UpdateHealth(+5);
         }
 
-        if (Input.GetKeyDown("2") && ManaP > 0 && currentMana < maxMana)
+        if ((Input.GetKeyDown("2")|| Input.GetButtonDown("Usemana")) && ManaP > 0 && currentMana < maxMana)
         {
             ManaP -= 1;
             SetCurrentMP();
@@ -193,7 +193,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
 
         // when to jump
-        if(Input.GetKey(jumpKey) && readyToJump && grounded)
+        if((Input.GetKey(jumpKey) || Input.GetButtonDown("Jump")) && readyToJump && grounded)
         {
             readyToJump = false;
             Jump();
@@ -202,17 +202,17 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
 
         //Crouching is the goal here
-        if (Input.GetKeyDown("c"))
+        if (Input.GetKeyDown("c") || Input.GetButtonDown("Crouch"))
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
         }
-        if (Input.GetKeyUp("c"))
+        if (Input.GetKeyUp("c") || Input.GetButtonUp("Crouch"))
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
         // Starts charging fireball
-        if (Input.GetKey(KeyCode.Mouse0) && chargeTime < 3)
+        if (Input.GetKey(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") && chargeTime < 3)
         {
             isCharging = true;
             if (isCharging == true)
@@ -401,8 +401,17 @@ public class PlayerMovementTutorial : MonoBehaviour
         //Send player to different scenes
         if (other.CompareTag("LevelOne"))
         {
-            Debug.Log("Send Me to Level One!");
-            SceneManager.LoadScene("Level1Terrain");
+            SceneManager.LoadScene("Level1");
+        }
+
+        if (other.CompareTag("LevelTwo"))
+        {
+            SceneManager.LoadScene("Level2");
+        }
+
+        if (other.CompareTag("LevelThree"))
+        {
+            SceneManager.LoadScene("Level3");
         }
 
         if (other.CompareTag("Health"))
