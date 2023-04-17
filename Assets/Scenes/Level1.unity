@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: f1276e66d9f174d4eb919b5d1e3f920b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: e3c5a32b14d412243a86a0bea4da1d23, type: 2}
 --- !u!1001 &3606325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3566,10 +3566,13 @@ MonoBehaviour:
   timeInvincible: 2
   HealthPText: {fileID: 1406772159}
   ManaPText: {fileID: 1857551333}
+  crystalCountText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
   maxMana: 0
   currentMana: 0
   enemiesKilled: 0
   bossBoarKilled: 0
+  crystalsCollected: 0
 --- !u!114 &591138931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7308,7 +7311,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123173392}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b7bfb19b8b6d6904d8bc3f19a5584184, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 8387010fb49798b4abb3b08412a5881b, type: 2}
   m_EnableTreeColliders: 1
@@ -12603,7 +12606,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783384052}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b7bfb19b8b6d6904d8bc3f19a5584184, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 0c5698956339ae04eb132e583c366509, type: 2}
   m_EnableTreeColliders: 1

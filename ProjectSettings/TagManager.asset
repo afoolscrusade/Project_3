@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - Mana
   - Projectile
+  - Crystal
   layers:
   - Default
   - TransparentFX

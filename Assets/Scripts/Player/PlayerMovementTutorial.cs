@@ -77,6 +77,10 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public TextMeshProUGUI ManaPText;
 
+    public TextMeshProUGUI crystalCountText;
+
+    public TextMeshProUGUI enemiesKilledText;
+
     public float maxMana;
     public float currentMana;
     private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
@@ -88,6 +92,8 @@ public class PlayerMovementTutorial : MonoBehaviour
     public int enemiesKilled;
     public bool bossBoarKilled;
 
+    public float crystalsCollected;
+
 
 
     private void Awake()
@@ -97,6 +103,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         currentHealth = maxHealth;
         currentMana = maxMana;
         enemiesKilled = 0;
+        bossBoarKilled = false;
+        crystalsCollected = 0;
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -112,6 +120,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Update()
     {
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, GroundMask);
 
@@ -164,6 +173,12 @@ public class PlayerMovementTutorial : MonoBehaviour
             SceneManager.LoadScene("MainHub");
         }
 
+        if (crystalsCollected == 4)
+        {
+            SceneManager.LoadScene("MainHub");
+        }
+
+
     }
 
     private void FixedUpdate()
@@ -181,7 +196,6 @@ public class PlayerMovementTutorial : MonoBehaviour
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
-            animator.SetBool("isJumping", true);
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -255,6 +269,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     private void Jump()
     {
+        animator.SetBool("isJumping", true);
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -400,6 +415,11 @@ public class PlayerMovementTutorial : MonoBehaviour
             ManaP += 1;
             SetCurrentMP();
         }
+        if (other.CompareTag("Crystal"))
+        {
+            crystalsCollected += 0.5f; // Set to 0.5 due to weird doubling bug
+            SetCurrentCrystals();
+        }
     }
 
         
@@ -412,6 +432,11 @@ public class PlayerMovementTutorial : MonoBehaviour
         public void SetCurrentMP()
     {
         ManaPText.text = "MP: " + ManaP.ToString();
+    }
+
+    public void SetCurrentCrystals()
+    {
+        crystalCountText.text = "Crystals Collected: " + crystalsCollected.ToString() + "/4";
     }
 
     private IEnumerator RegenMana()

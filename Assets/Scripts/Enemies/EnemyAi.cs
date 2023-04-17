@@ -135,6 +135,7 @@ public class EnemyAi : MonoBehaviour
         if (countable == true)
         {
             player.enemiesKilled += 1;
+            player.enemiesKilledText.text = "Enemies Killed: " + player.enemiesKilled + "/11";
         }
         if (isBoss == true)
         {

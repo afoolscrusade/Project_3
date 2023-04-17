@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public AudioMixer audioMixer;
     public void PlayGame ()
     {
-        SceneManager.LoadScene("MainHub");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitGame ()
