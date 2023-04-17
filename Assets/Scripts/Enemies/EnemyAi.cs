@@ -9,6 +9,8 @@ public class EnemyAi : MonoBehaviour
 
     public Transform player;
 
+    PlayerMovementTutorial playerObject;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
@@ -31,6 +33,8 @@ public class EnemyAi : MonoBehaviour
 
     // Enemy type
     public int enemyID;
+    public bool countable;
+    public bool isBoss;
 
     private void Awake()
     {
@@ -101,11 +105,10 @@ public class EnemyAi : MonoBehaviour
         }
         if (enemyID == 0)
         {
-            //agent.speed *= 2;
+            transform.LookAt(player);
             agent.SetDestination(player.position);
             if (!playerInSightRange)
             {
-                agent.speed /= 2;
                 Patroling();
             }
         }
@@ -128,6 +131,15 @@ public class EnemyAi : MonoBehaviour
     }
     private void DestroyEnemy()
     {
+        PlayerMovementTutorial player = gameObject.GetComponent<PlayerMovementTutorial>();
+        if (countable == true)
+        {
+            player.enemiesKilled += 1;
+        }
+        if (isBoss == true)
+        {
+            player.bossBoarKilled = true;
+        }
         Destroy(gameObject);
     }
 

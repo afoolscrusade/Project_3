@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Ground
   - Mana
+  - Projectile
   layers:
   - Default
   - TransparentFX

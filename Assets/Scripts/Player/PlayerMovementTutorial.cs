@@ -82,7 +82,11 @@ public class PlayerMovementTutorial : MonoBehaviour
     private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     private Coroutine regen;
 
+    Animator animator;
+    bool isWalking;
 
+    public int enemiesKilled;
+    public bool bossBoarKilled;
 
 
 
@@ -92,6 +96,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         maxMana = 10;
         currentHealth = maxHealth;
         currentMana = maxMana;
+        enemiesKilled = 0;
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -100,6 +106,8 @@ public class PlayerMovementTutorial : MonoBehaviour
         //Potions
         SetCurrentHP();
         SetCurrentMP();
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -142,6 +150,19 @@ public class PlayerMovementTutorial : MonoBehaviour
             UpdateMana(+5);
         }
 
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        if (horizontalInput == 0 && verticalInput == 0)
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+        if (enemiesKilled == 10 && bossBoarKilled == true)
+        {
+            SceneManager.LoadScene("MainHub");
+        }
 
     }
 
@@ -155,11 +176,12 @@ public class PlayerMovementTutorial : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+
         // when to jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
-
+            animator.SetBool("isJumping", true);
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -316,6 +338,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            animator.SetBool("isDead", true);
+            StartCoroutine(PlayerDeathAnimation());
             Debug.Log("Player should be dead");
             SceneManager.LoadScene("GameOver");
         }
@@ -342,6 +366,11 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         yield return new WaitForSeconds(AttackCooldown);
 
+    }
+
+    IEnumerator PlayerDeathAnimation()
+    {
+        yield return new WaitForSeconds(5);
     }
 
     //Laser Testing
