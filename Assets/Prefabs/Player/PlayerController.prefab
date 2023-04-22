@@ -406,15 +406,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643419157}
   m_LocalRotation: {x: -0.013855159, y: 0.9305496, z: -0.036233973, w: -0.3641052}
-  m_LocalPosition: {x: -0.60494804, y: -0.926, z: 0.66070974}
+  m_LocalPosition: {x: 0.02505207, y: 0.78999996, z: 0.0027097464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 52882931}
   - {fileID: 1334741217}
   - {fileID: 661321910}
-  m_Father: {fileID: 5655929831158589879}
-  m_RootOrder: 2
+  m_Father: {fileID: 5655929832566510290}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &651701235
 GameObject:
@@ -666,12 +666,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137304198}
   m_LocalRotation: {x: -0.7071068, y: 0.000000014901161, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.62999934, y: -0.19599998, z: 0.5645685}
+  m_LocalPosition: {x: 0, y: 1.52, z: -0.09343147}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5655929831158589879}
-  m_RootOrder: 3
+  m_Father: {fileID: 5655929832566510290}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &1137304200
 SkinnedMeshRenderer:
@@ -1509,10 +1509,8 @@ Transform:
   m_Children:
   - {fileID: 5655929831471925494}
   - {fileID: 5655929831441321499}
-  - {fileID: 643419158}
-  - {fileID: 1137304199}
   m_Father: {fileID: 5655929832566510290}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5655929831441321498
 GameObject:
@@ -1676,7 +1674,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5655929832566510290}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5655929831486278030
 MeshFilter:
@@ -1776,6 +1774,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 643419158}
+  - {fileID: 1137304199}
   - {fileID: 5655929831158589879}
   - {fileID: 5655929831486278027}
   m_Father: {fileID: 0}
@@ -1854,10 +1854,13 @@ MonoBehaviour:
   timeInvincible: 2
   HealthPText: {fileID: 0}
   ManaPText: {fileID: 0}
+  crystalCountText: {fileID: 0}
+  enemiesKilledText: {fileID: 0}
   maxMana: 0
   currentMana: 0
   enemiesKilled: 0
   bossBoarKilled: 0
+  crystalsCollected: 0
 --- !u!114 &5655929832566510289
 MonoBehaviour:
   m_ObjectHideFlags: 0

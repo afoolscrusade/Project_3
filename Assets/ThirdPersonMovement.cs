@@ -1,48 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
-public class PlayerMovementTutorial : MonoBehaviour
+
+public class ThirdPersonMovement : MonoBehaviour
 {
+    public CharacterController controller;
+    public Transform cam;
+    public Camera camera;
 
-
-    [Header("Movement")]
-    public float moveSpeed;
-
-    public float groundDrag;
-
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    bool readyToJump;
-
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
-
-    [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask GroundMask;
-    public bool grounded;
-
-    public Transform orientation;
-
+    // Player Movement
+    public float speed = 6f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
     float horizontalInput;
     float verticalInput;
 
-    Vector3 moveDirection;
+    // Charge Shot
+    [SerializeField]
+    private GameObject chargedFireball;
+    public float chargeSpeed;
+    public float chargeTime;
+    bool isCharging;
 
-    Rigidbody rb;
-
-    //crouch
-    private Vector3 scaleChange;
-    private GameObject plr;
+    //jump
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    Vector3 velocity;
+    public bool isGrounded;
+    public bool isJump;
 
     //player Attack
     public bool CanAttack;
@@ -51,17 +41,6 @@ public class PlayerMovementTutorial : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed;
     public Transform projectileSpawn;
-    [SerializeField]
-    private GameObject fireball;
-
-    public Camera camera;
-
-    // Charge Shot
-    [SerializeField]
-    private GameObject chargedFireball;
-    public float chargeSpeed;
-    public float chargeTime;
-    bool isCharging;
 
     // Player Health
     public float maxHealth;
@@ -94,8 +73,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public float crystalsCollected;
 
-
-
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
     private void Awake()
     {
         maxHealth = 10;
@@ -106,11 +85,6 @@ public class PlayerMovementTutorial : MonoBehaviour
         bossBoarKilled = false;
         crystalsCollected = 0;
 
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-
-        readyToJump = true;
-
         //Potions
         SetCurrentHP();
         SetCurrentMP();
@@ -118,99 +92,37 @@ public class PlayerMovementTutorial : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-
-        // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, GroundMask);
-
-        MyInput();
-        SpeedControl();
-
-        // handle drag
-        if (grounded)
-            rb.drag = groundDrag;
-        else
-            rb.drag = 0;
-
-        // Player invinsibility frames
-
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-            {
-                isInvincible = false;
-            }
-        }
-
-        //Potions use
-        if ((Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("Usehealth")) && HealthP > 0 && currentHealth < maxHealth)
-        {
-            HealthP -= 1;
-            SetCurrentHP();
-            UpdateHealth(+5);
-        }
-
-        if ((Input.GetKeyDown(KeyCode.Q)|| Input.GetButtonDown("Usemana")) && ManaP > 0 && currentMana < maxMana)
-        {
-            ManaP -= 1;
-            SetCurrentMP();
-            UpdateMana(+5);
-        }
-
-        if (horizontalInput != 0 || verticalInput != 0)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        if (horizontalInput == 0 && verticalInput == 0)
-        {
-            animator.SetBool("isWalking", false);
-        }
-
-        if (enemiesKilled == 10 && bossBoarKilled == true)
-        {
-            SceneManager.LoadScene("MainHub");
-        }
-
-        if (crystalsCollected == 4)
-        {
-            SceneManager.LoadScene("MainHub");
-        }
-
-
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void MyInput()
+    // Update is called once per frame
+    void FixedUpdate()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+        Vector3 direction = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        // when to jump
-        if((Input.GetKey(jumpKey) || Input.GetButtonDown("Jump")) && readyToJump && grounded)
+        if (isGrounded && velocity.y < 0)
         {
-            readyToJump = false;
+            velocity.y = -2f;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
             Jump();
-
-            Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        //Crouching is the goal here
-        if (Input.GetKeyDown("c") || Input.GetButtonDown("Crouch"))
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
+        if (direction.magnitude >= 0.1f)
         {
-            transform.localScale = new Vector3(1f, 0.5f, 1f);
-        }
-        if (Input.GetKeyUp("c") || Input.GetButtonUp("Crouch"))
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir * speed * Time.deltaTime);
+        }
         // Starts charging fireball
         if (Input.GetKey(KeyCode.Mouse0) || Input.GetButtonDown("Fire1") && chargeTime < 3)
         {
@@ -239,50 +151,73 @@ public class PlayerMovementTutorial : MonoBehaviour
         {
             LaserAttack();
         }*/
-    }
 
-    private void MovePlayer()
-    {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        // on ground
-        if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        // in air
-        else if(!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
-    }
-
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // limit velocity if needed
-        if(flatVel.magnitude > moveSpeed)
+        //NPC interaction
+        if (Input.GetKeyDown("x"))
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            Debug.Log("NPC");
+            float interactRange = 2f;
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            foreach (Collider collider in colliderArray)
+                if (collider.TryGetComponent(out NPC_Script NPC_Script))
+                {
+                    NPC_Script.Interact();
+                }
+        }
+        //Potions use
+        if ((Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("Usehealth")) && HealthP > 0 && currentHealth < maxHealth)
+        {
+            HealthP -= 1;
+            SetCurrentHP();
+            UpdateHealth(+5);
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Usemana")) && ManaP > 0 && currentMana < maxMana)
+        {
+            ManaP -= 1;
+            SetCurrentMP();
+            UpdateMana(+5);
+        }
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        if (horizontalInput == 0 && verticalInput == 0)
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+        if (enemiesKilled == 10 && bossBoarKilled == true)
+        {
+            SceneManager.LoadScene("MainHub");
+        }
+
+        if (crystalsCollected == 4)
+        {
+            SceneManager.LoadScene("MainHub");
         }
     }
 
-    private void Jump()
+    void Jump()
     {
-        animator.SetBool("isJumping", true);
-        // reset y velocity
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
-    private void ResetJump()
-    {
-        readyToJump = true;
-    }
+        if (isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJump = true;
+        }
 
+        else if (isJump)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            isJump = false;
+        }
+
+    }
     public void FireballAttack()
     {
-    
+
         //Rigidbody rb = fireball.GetComponent<Rigidbody>();
 
         //rb.velocity = Camera.main.transform.forward * projectileSpeed;
@@ -305,7 +240,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         currentFireball.GetComponent<Rigidbody>().AddForce(direction.normalized * projectileSpeed, ForceMode.Impulse);
 
-        
+
 
         StartCoroutine(ResetAttackCooldown());
     }
@@ -367,13 +302,13 @@ public class PlayerMovementTutorial : MonoBehaviour
         if (currentMana < maxMana)
         {
             if (regen != null)
-                
-                    StopCoroutine(regen);
-                
+
+                StopCoroutine(regen);
+
             regen = StartCoroutine(RegenMana());
-        
+
         }
-   
+
     }
 
     IEnumerator ResetAttackCooldown()
@@ -387,17 +322,9 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
     }
-
-    //Laser Testing
-    /*public void LaserAttack()
-{
-    GameObject Laser = Instantiate(LaserObject, LaserSpawn) as GameObject;
-}*/
-
-
     void OnTriggerEnter(Collider other)
     {
-        
+
         //Send player to different scenes
         if (other.CompareTag("LevelOne"))
         {
@@ -431,14 +358,14 @@ public class PlayerMovementTutorial : MonoBehaviour
         }
     }
 
-        
-        //Potion collection
-        public void SetCurrentHP()
+
+    //Potion collection
+    public void SetCurrentHP()
     {
         HealthPText.text = "HP: " + HealthP.ToString();
     }
 
-        public void SetCurrentMP()
+    public void SetCurrentMP()
     {
         ManaPText.text = "MP: " + ManaP.ToString();
     }
@@ -452,7 +379,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        while(currentMana < maxMana)
+        while (currentMana < maxMana)
         {
             currentMana += maxMana / 100;
 
