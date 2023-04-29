@@ -22,6 +22,8 @@ public class FlomphCollect : MonoBehaviour
         if (other.tag == "Player")
         {
             SceneManager.LoadScene("MainHub");
+
         }
+
     }
 }

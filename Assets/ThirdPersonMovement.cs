@@ -8,6 +8,9 @@ using TMPro;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
+
+    
+    
     public CharacterController controller;
     public Transform cam;
     public Camera camera;
@@ -155,7 +158,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }*/
 
         //NPC interaction
-        if (Input.GetKeyDown("x"))
+        /*if (Input.GetKeyDown("x"))
         {
             Debug.Log("NPC");
             float interactRange = 2f;
@@ -165,7 +168,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     NPC_Script.Interact();
                 }
-        }
+        }*/
         //Potions use
         if ((Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("Usehealth")) && HealthP > 0 && currentHealth < maxHealth)
         {
@@ -382,6 +385,7 @@ public class ThirdPersonMovement : MonoBehaviour
             crystalsCollected += 1; // Set to 0.5 due to weird doubling bug
             SetCurrentCrystals();
         }
+    
     }
 
 
@@ -414,5 +418,8 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         regen = null;
     }
+
+
+
 
 }

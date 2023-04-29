@@ -476,10 +476,108 @@ MonoBehaviour:
   dialogue:
     name: Flomph
     sentences:
-    - The bridge to level one is open.
+    - Can you please help me?
+    - My friends are being kidnapped and taken deep into the forest
+    newSentences: []
   levelOneObject: {fileID: 715537531}
   levelTwoObject: {fileID: 1438993483}
   levelThreeObject: {fileID: 1916295748}
+--- !u!82 &40482047
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40482041}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &44763133
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +866,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8607588194064360081, guid: f4795e2208413dd4ea17a2facbaeda0d, type: 3}
   m_PrefabInstance: {fileID: 68772670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &81586497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+  m_PrefabInstance: {fileID: 875084921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &81586500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81586497}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026989276, y: 0.017193137, z: 0.05019382}
+  m_Center: {x: -0.00016776283, y: 0.0003365248, z: -0.00022249483}
 --- !u!1001 &86911330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1869,6 +1985,7 @@ MonoBehaviour:
     - I was an experiment!
     - This too was an experiment!
     - The experiment was a success!
+    newSentences: []
   levelOneObject: {fileID: 1635380867}
   levelTwoObject: {fileID: 452771610}
   levelThreeObject: {fileID: 306920431}
@@ -2716,6 +2833,11 @@ Transform:
   m_Father: {fileID: 1143089863}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &379499049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 796013764144953042, guid: f530b011b8d315541a5053220079ce46, type: 3}
+  m_PrefabInstance: {fileID: 796013764834263868}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &400734114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2845,6 +2967,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zoe
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_TagString
+      value: Zoe
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -124.74999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -124.74999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -124.74999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.99705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.011327
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2869,8 +3019,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Zoe
+    sentences:
+    - "I\u2019ve been hearing about you wizard; I\u2019ve got a task for you."
+    - I need a crystal from deep within the Lacrima Caverns to make a new type of
+      brew, think you could get it?
+    newSentences: []
   levelOneObject: {fileID: 715537531}
   levelTwoObject: {fileID: 1438993483}
   levelThreeObject: {fileID: 1916295748}
@@ -3684,6 +3838,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8607588194064360081, guid: f4795e2208413dd4ea17a2facbaeda0d, type: 3}
   m_PrefabInstance: {fileID: 521566051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &524523347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: e117d78c5d1607c468b199b2c818fa68, type: 3}
+  m_PrefabInstance: {fileID: 403768422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &524523350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524523347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01829281, y: 0.016414978, z: 0.047599252}
+  m_Center: {x: -0.008142568, y: -0.00045766417, z: 0.0015540957}
 --- !u!1001 &524729355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4316,12 +4488,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
   m_PrefabInstance: {fileID: 796013764834263868}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 379499049}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1ea507b88b849340a90192fcf3926ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &694875633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379499049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9acb029758ecaf44905420b64e860bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 1306659181}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,18 +5118,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a19ba3690bae70444955aec960b8a612, type: 3}
   m_PrefabInstance: {fileID: 777054295}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &777054297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777054296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6490d7b621208e48995d44f17be8eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &777054298
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5140,7 +5313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5748,6 +5921,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 165.40999
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 165.40999
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 165.40999
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.010975
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1902
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.022011
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac8e53f36bd3ce24ead209bfca9fcf54, type: 3}
       propertyPath: m_Name
       value: Marjal
@@ -5776,8 +5973,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
+    name: Marjal
+    sentences:
+    - Well hello there young one, think you could help me out?
+    - "There\u2019s been creatures up in the mountain stealing my crops, can you
+      please take care of them?"
+    newSentences: []
   levelOneObject: {fileID: 715537531}
   levelTwoObject: {fileID: 1438993483}
   levelThreeObject: {fileID: 1916295748}
@@ -8108,18 +8309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d2976b29e0a1c4b92b4f83920332e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1167372235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167372227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d2976b29e0a1c4b92b4f83920332e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1170292621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8815,7 +9004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1306659182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10809,18 +10998,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a19ba3690bae70444955aec960b8a612, type: 3}
   m_PrefabInstance: {fileID: 1660881653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1660881655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660881654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de14f443b0185ba4fa58498a98a5ea38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1660881656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14288,11 +14465,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 5.297979e-17
+      value: -5.297979e-17
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.4893547e-16
+      value: -1.4893547e-16
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287767624309, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_Name
@@ -14360,11 +14537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289414710873, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008571281
+      value: 0.0000000085712815
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289414710873, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.4030315e-10
+      value: -7.4030326e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
