@@ -41,6 +41,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public GameObject projectile;
     public float projectileSpeed;
     public Transform projectileSpawn;
+    public bool isAttacking;
+    public bool isStrongAttacking;
 
     // Player Health
     public float maxHealth;
@@ -65,7 +67,7 @@ public class ThirdPersonMovement : MonoBehaviour
     private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     private Coroutine regen;
 
-    Animator animator;
+    public Animator animator;
     bool isWalking;
 
     public int enemiesKilled;
@@ -89,7 +91,7 @@ public class ThirdPersonMovement : MonoBehaviour
         SetCurrentHP();
         SetCurrentMP();
 
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -179,6 +181,8 @@ public class ThirdPersonMovement : MonoBehaviour
             UpdateMana(+5);
         }
 
+        // Animations
+
         if (horizontalInput != 0 || verticalInput != 0)
         {
             animator.SetBool("isWalking", true);
@@ -186,6 +190,23 @@ public class ThirdPersonMovement : MonoBehaviour
         if (horizontalInput == 0 && verticalInput == 0)
         {
             animator.SetBool("isWalking", false);
+        }
+
+        /*if (isGrounded == false && isJump == true)
+        {
+            animator.SetTrigger("jumping");
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("isJumping", false);
+        }*/
+        if (isAttacking == true)
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else if (isAttacking == false)
+        {
+            animator.SetBool("isAttacking", false);
         }
 
         if (enemiesKilled == 10 && bossBoarKilled == true)
@@ -206,12 +227,14 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             isJump = true;
+            animator.SetTrigger("jumping");
         }
 
         else if (isJump)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             isJump = false;
+            animator.SetTrigger("jumping");
         }
 
     }
@@ -223,6 +246,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //rb.velocity = Camera.main.transform.forward * projectileSpeed;
 
         //new fireball shooting
+        animator.SetTrigger("attack");
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -243,6 +267,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
 
         StartCoroutine(ResetAttackCooldown());
+        isAttacking = false;
     }
 
     void ReleaseCharge()
@@ -253,6 +278,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //rb.velocity = Camera.main.transform.forward * projectileSpeed;
 
         //new fireballattack
+        animator.SetTrigger("strongAttack");
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -353,7 +379,7 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         if (other.CompareTag("Crystal"))
         {
-            crystalsCollected += 0.5f; // Set to 0.5 due to weird doubling bug
+            crystalsCollected += 1; // Set to 0.5 due to weird doubling bug
             SetCurrentCrystals();
         }
     }

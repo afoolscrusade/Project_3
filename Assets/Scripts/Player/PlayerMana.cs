@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMana : MonoBehaviour
 {
-    public PlayerMovementTutorial playerMana;
+    public ThirdPersonMovement playerMana;
     public Image fillImage;
     private Slider slider;
     private float fillValue;

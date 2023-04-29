@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public PlayerMovementTutorial playerHealth;
+    public ThirdPersonMovement playerHealth;
     public Image fillImage;
     private Slider slider;
     private float fillValue;
