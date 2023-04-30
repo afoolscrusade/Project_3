@@ -161,6 +161,14 @@ public class ThirdPersonMovement : MonoBehaviour
             UpdateMana(-5);
         }
 
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }    
+        }
         //Testing Laser
         /*if(Input.GetButtonDown("Fire2"))
         {
@@ -226,7 +234,7 @@ public class ThirdPersonMovement : MonoBehaviour
             animator.SetBool("isAttacking", false);
         }
 
-        if (enemiesKilled == 10 && bossBoarKilled == true)
+        if (enemiesKilled >= 10 && bossBoarKilled == true)
         {
             SceneManager.LoadScene("MainHub");
         }
@@ -243,7 +251,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            isJump = true;
+            //isJump = true;
             animator.SetTrigger("jumping");
         }
 
@@ -367,6 +375,13 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Touched enemy");
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
 
@@ -401,6 +416,7 @@ public class ThirdPersonMovement : MonoBehaviour
             crystalsCollected += 1; // Set to 0.5 due to weird doubling bug
             SetCurrentCrystals();
         }
+
     
     }
 

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FlomphCollect : MonoBehaviour
 {
-
+    public Animator animator;
+    public bool isBossDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +16,31 @@ public class FlomphCollect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isBossDead == false)
+        {
+            animator.SetBool("isSad", true);
+        }
+        else if (isBossDead == true)
+        {
+            animator.SetBool("isSad", false);
+        }
     }
+
+     public void UpdateBoss()
+    {
+        isBossDead = true;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            PlayerPrefs.SetInt("Dialgoue Level", 1);
-            SceneManager.LoadScene("MainHub");
-
+            if (isBossDead == true)
+            {
+                PlayerPrefs.SetInt("Dialgoue Level", 1);
+                SceneManager.LoadScene("MainHub");
+            }
         }
 
     }

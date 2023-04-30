@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6282222988489912981}
   - component: {fileID: 166462213315526556}
   - component: {fileID: 7329614334671485983}
-  - component: {fileID: -8042710831785693982}
+  - component: {fileID: -7312748009391349363}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: BossBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5975936448781423994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.55, y: 3.25, z: 37.013916}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-8042710831785693982
+--- !u!114 &-7312748009391349363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5975936448781423994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60a7092210f10548a0be113bc3a358e, type: 3}
+  m_Script: {fileID: 11500000, guid: fa6906dfb8f023d46b1860149c999d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

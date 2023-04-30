@@ -11,6 +11,8 @@ public class EnemyAi : MonoBehaviour
 
     PlayerMovementTutorial playerObject;
 
+    public Animator animator;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
@@ -39,14 +41,16 @@ public class EnemyAi : MonoBehaviour
     public int enemyID;
     public bool countable;
     public bool isBoss;
+    public bool isSlimeBoss;
+    bool isBossAlive;
 
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("ThirdPersonPlayer").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
@@ -93,14 +97,11 @@ public class EnemyAi : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-
-
         if (!alreadyAttacked)
         {
             ///Attack code here
             if (enemyID == 1)
             {
-
                 ShootAtPlayer();
                 //Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
                 alreadyAttacked = true;
@@ -142,11 +143,15 @@ public class EnemyAi : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) //Invoke(nameof(DestroyEnemy), 0.5f);
+        {
+            DestroyEnemy();
+        }
     }
     private void DestroyEnemy()
     {
-        PlayerMovementTutorial player = gameObject.GetComponent<PlayerMovementTutorial>();
+        ThirdPersonMovement player = FindObjectOfType<ThirdPersonMovement>();
+        FlomphCollect flomph = FindObjectOfType<FlomphCollect>();
         if (countable == true)
         {
             player.enemiesKilled += 1;
@@ -155,8 +160,21 @@ public class EnemyAi : MonoBehaviour
         if (isBoss == true)
         {
             player.bossBoarKilled = true;
+            animator.SetBool("isDead", true);
+            agent.isStopped = true;
+            Destroy(gameObject, 5);
+            return;
+
+        }
+        if (isSlimeBoss == true)
+        {
+            flomph.isBossDead = true;
+            //flomph.UpdateBoss();
+            //Destroy(gameObject);
+
         }
         Destroy(gameObject);
+
     }
 
     private void OnDrawGizmosSelected()
@@ -169,9 +187,10 @@ public class EnemyAi : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        PlayerMovementTutorial player = collision.gameObject.GetComponent<PlayerMovementTutorial>();
+        ThirdPersonMovement player = collision.gameObject.GetComponent<ThirdPersonMovement>();
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Hitting player");
             player.UpdateHealth(-1);
         }
     }
