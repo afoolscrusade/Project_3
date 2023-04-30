@@ -384,7 +384,10 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-
+        if (other.CompareTag("HubSpawn"))
+        {
+            SceneManager.LoadScene("MainHub");
+        }
         //Send player to different scenes
         if (other.CompareTag("LevelOne"))
         {

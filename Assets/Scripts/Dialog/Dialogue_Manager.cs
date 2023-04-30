@@ -13,6 +13,7 @@ public class Dialogue_Manager : MonoBehaviour
     
     private Queue<string> sentences;
     private Queue<string> newSentences;
+    private Queue<string> thirdSentences;
 
     ThirdPersonMovement attack;
     Dialogue_Trigger npcAnimation;
@@ -26,6 +27,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         sentences = new Queue<string>();
         newSentences = new Queue<string>();
+        thirdSentences = new Queue<string>();
         attack = FindObjectOfType<ThirdPersonMovement>();
     }
 
@@ -62,6 +64,21 @@ public class Dialogue_Manager : MonoBehaviour
         DisplayNextNewSentence();
     }
 
+    public void StartThirdDialogue(Dialogue dialogue)
+    {
+        //dialogueNumber.audioNumber = 0;
+        nameText.text = dialogue.name;
+
+        thirdSentences.Clear();
+
+        foreach (string thirdSentence in dialogue.thirdSentences)
+        {
+            thirdSentences.Enqueue(thirdSentence);
+        }
+
+        DisplayNextThirdSentence();
+    }
+
     public void DisplayNextSentence()
     {
         //dialogueNumber.audioNumber += 1;
@@ -88,6 +105,20 @@ public class Dialogue_Manager : MonoBehaviour
         string newSentence = newSentences.Dequeue();
         dialogueText.text = newSentence;
     }
+
+    public void DisplayNextThirdSentence()
+    {
+        if(thirdSentences.Count == 0)
+        {
+            FindObjectOfType<Dialogue_Trigger>().StopAnimation();
+            EndDialogue();
+            return;
+        }
+        //dialogueNumber.audioNumber += 1;
+
+        string thirdSentence = thirdSentences.Dequeue();
+        dialogueText.text = thirdSentence;
+    }    
 
     void EndDialogue()
     {

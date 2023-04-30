@@ -38,7 +38,7 @@ public class FlomphCollect : MonoBehaviour
         {
             if (isBossDead == true)
             {
-                PlayerPrefs.SetInt("Dialgoue Level", 1);
+                PlayerPrefs.SetInt("FlomphLevel", 1);
                 SceneManager.LoadScene("MainHub");
             }
         }

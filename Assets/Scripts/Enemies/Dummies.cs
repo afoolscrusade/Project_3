@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Dummies : MonoBehaviour
 {
+    public static int GoToHub;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,11 @@ public class Dummies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GoToHub >= 2)
+        {
+            PlayerPrefs.SetInt("GoToMainHub", 1);
+        }
+
         
     }
 
@@ -21,8 +27,11 @@ public class Dummies : MonoBehaviour
     {
         if (other.tag == "Projectile")
         {
-            SceneManager.LoadScene("MainHub");
-            Destroy(gameObject);
+            
+            //SceneManager.LoadScene("MainHub");
+            GoToHub += 1;
+            
+
         }
     }
 }

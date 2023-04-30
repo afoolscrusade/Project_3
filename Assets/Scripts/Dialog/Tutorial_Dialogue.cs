@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Dialogue_Trigger : MonoBehaviour
+public class Tutorial_Dialogue : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public GameObject levelOneObject;
-    public GameObject levelTwoObject;
-    public GameObject levelThreeObject;
+    public GameObject MainHubObject;
+    public int GoToMainHub;
+
     public int dialogueSelected;
     public int audioNumber;
 
@@ -20,29 +20,31 @@ public class Dialogue_Trigger : MonoBehaviour
     public Animator animator;
 
     ThirdPersonMovement attack;
-
-
-    public int FlomphLevel;
-    public int MorjalLevel;
-    public int ZoeLevel;
+    Dummies dummy;
 
 
     void Start()
     {
-        levelOneObject.SetActive(false);
-        levelTwoObject.SetActive(false);
-        levelThreeObject.SetActive(false);
+        MainHubObject.SetActive(false);
+        dummy = FindObjectOfType<Dummies>();
+
         attack = FindObjectOfType<ThirdPersonMovement>();
         //PlayerPrefs.SetInt("Dialgoue Level", 1);
         //dialogueSelected = PlayerPrefs.GetInt("Dialgoue Level");
+
+        PlayerPrefs.SetInt("GoToMainHub", 0);
+        
     }
     private void Update()
     {
+        
+        GoToMainHub = PlayerPrefs.GetInt("GoToMainHub");
         //NPC Interact
         if (Input.GetKeyDown("x") || Input.GetButtonDown("Interact"))
         {
             Debug.Log("NPC");
-
+            //PlayerPrefs.GetInt("GoToMainHub");
+            
 
             float interactRange = 2f;
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
@@ -53,13 +55,14 @@ public class Dialogue_Trigger : MonoBehaviour
 
                     animator.SetBool("isTalking", true);
                     audioNumber = 0;
-                    TriggerDialogue();
-                    NewTriggerDialogue();
+                    TutorialTriggerDialogue();
+                    TutorialNewTriggerDialogue();
+                    
                 }
         }
     }
 
-    public void NextDialgoueAudio()
+    public void TutorialNextDialgoueAudio()
     {
 
             if (audioNumber == 1)
@@ -77,78 +80,55 @@ public class Dialogue_Trigger : MonoBehaviour
 
 
     }
-    public void TriggerDialogue()
+    public void TutorialTriggerDialogue()
     {
         attack.canAttack = false;
-        if (audioNumber == 0 && dialogueSelected == 0)
+        if (audioNumber == 0 && GoToMainHub == 0)
         {
             audioSource.PlayOneShot(dialogueAudio1);
             audioNumber += 1;
         }
 
 
-        if (dialogueSelected == 0)
+        if (GoToMainHub == 0)
         {
             FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
 
-            if (GetComponent<Collider>().CompareTag("Flomph"))
-            {
-
-                levelOneObject.SetActive(true);
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Marjal"))
-            {
-
-                levelTwoObject.SetActive(true);
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Zoe"))
+            if (GetComponent<Collider>().CompareTag("Aquarica"))
             {
                 
             }
+
         }
 
 
     }
-    public void NewTriggerDialogue()
+    public void TutorialNewTriggerDialogue()
     {
-        if (audioNumber == 0 && dialogueSelected == 1)
+        if (audioNumber == 0 && GoToMainHub == 1)
         {
             audioSource.PlayOneShot(dialogueAudio3);
         }
 
-        if (dialogueSelected == 1)
+        if (GoToMainHub == 1)
         {
             FindObjectOfType<Dialogue_Manager>().StartNewDialogue(dialogue);
 
-            if (GetComponent<Collider>().CompareTag("Flomph"))
+            if (GetComponent<Collider>().CompareTag("Aquarica"))
             {
-
-                
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Marjal"))
-            {
-
-                
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Zoe"))
-            {
-                levelThreeObject.SetActive(true);
+                Invoke("SendToGame", 2);
             }
         }
     }
 
-    public void StopAnimation()
+    public void TutorialStopAnimation()
     {
         animator.SetBool("isTalking", false);
     }
 
+    void SendToGame()
+    {
+        MainHubObject.SetActive(true);
+    }
 
 }

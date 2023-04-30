@@ -1739,6 +1739,7 @@ MonoBehaviour:
     - This too was an experiment!
     - The experiment was a success!
     newSentences: []
+    thirdSentences: []
   levelOneObject: {fileID: 0}
   levelTwoObject: {fileID: 0}
   levelThreeObject: {fileID: 0}
@@ -10426,14 +10427,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1121723014, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 72.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440797958, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 72.4
-      objectReference: {fileID: 0}
     - target: {fileID: 1814183527, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
       propertyPath: dialogueBox
       value: 
@@ -10442,10 +10435,6 @@ PrefabInstance:
       propertyPath: playerMana
       value: 
       objectReference: {fileID: 694875632}
-    - target: {fileID: 7294767442808456907, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7294767442863472312, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -10453,87 +10442,11 @@ PrefabInstance:
     - target: {fileID: 7294767442863472312, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443102802432, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443102802432, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443102802432, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443102802439, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443102802439, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443188120916, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.24691358
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767443188120916, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7294767443959517579, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 694875632}
-    - target: {fileID: 7294767444080378338, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.24691358
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444080378338, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444080378338, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.24691358
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_MinValue
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_WholeNumbers
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1981376260}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SetVolume, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7294767444605372502, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7294767444716943482, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -12202,24 +12115,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981184527}
   m_CullTransparentMesh: 1
---- !u!1 &1981376257 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7294767444605372500, guid: 3a0f91f4d803b8d42b384d96fd3fbcd2, type: 3}
-  m_PrefabInstance: {fileID: 1686857966}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1981376260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981376257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae309d70fc6e51646a4e499f539b9b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: af6b37cee2764834cba33ad6513aa0b2, type: 2}
 --- !u!1001 &1989758220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13110,18 +13005,6 @@ PrefabInstance:
       propertyPath: crystalCountText
       value: 
       objectReference: {fileID: 2005623066}
-    - target: {fileID: 796013764218805304, guid: f530b011b8d315541a5053220079ce46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 796013764218805304, guid: f530b011b8d315541a5053220079ce46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 796013764218805304, guid: f530b011b8d315541a5053220079ce46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 796013765557634856, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13715,6 +13598,40 @@ PrefabInstance:
       propertyPath: levelThreeObject
       value: 
       objectReference: {fileID: 1916295748}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.newSentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: I do not have any tasks for you at the moment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.thirdSentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.newSentences.Array.data[0]
+      value: "I\u2019ve been hearing about you wizard; I\u2019ve got a task for you."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.newSentences.Array.data[1]
+      value: I need a crystal from deep within the Lacrima Caverns to make a new
+        type of brew, think you could get it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3876466116466525971, guid: dfb09e60b29251249b13256bd5454361, type: 3}
+      propertyPath: dialogue.thirdSentences.Array.data[0]
+      value: Awesome! Now I can make my new drink. Also, Aquarica has been looking
+        for you You should go find her.
+      objectReference: {fileID: 0}
     - target: {fileID: 4110256717460044364, guid: dfb09e60b29251249b13256bd5454361, type: 3}
       propertyPath: m_Name
       value: Zoe
