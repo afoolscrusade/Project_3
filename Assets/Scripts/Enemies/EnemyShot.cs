@@ -9,16 +9,20 @@ public class EnemyShot : MonoBehaviour
     [SerializeField]
     private float lifeTime;
     [SerializeField]
-    private GameObject projectile;
+    public GameObject projectile;
     [SerializeField]
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.forward * speed;
+        rb.AddForce(rb.transform.forward * speed);
         DestroyProjectile();
     }
 
+    void ShootAtPlayer()
+    {
+        
+    }
     /*private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);

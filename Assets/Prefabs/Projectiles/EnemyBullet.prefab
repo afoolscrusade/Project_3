@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8380415941967237479
+--- !u!1 &5975936448781423994
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4394473084925474640}
-  - component: {fileID: 8939793238939238681}
-  - component: {fileID: 3036729917048559142}
-  - component: {fileID: 5199153513233267654}
-  - component: {fileID: 9213105437626955118}
-  - component: {fileID: 7456288116355836331}
+  - component: {fileID: 6160127474660814531}
+  - component: {fileID: 5680740630451818980}
+  - component: {fileID: 6282222988489912981}
+  - component: {fileID: 166462213315526556}
+  - component: {fileID: 7329614334671485983}
   m_Layer: 0
-  m_Name: EnemyShot
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4394473084925474640
+--- !u!4 &6160127474660814531
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
+  m_GameObject: {fileID: 5975936448781423994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6138258, y: 1.8154124, z: 4.56667}
+  m_LocalPosition: {x: 20.55, y: 3.25, z: 37.013916}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8939793238939238681
+--- !u!33 &5680740630451818980
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
+  m_GameObject: {fileID: 5975936448781423994}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3036729917048559142
+--- !u!23 &6282222988489912981
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
+  m_GameObject: {fileID: 5975936448781423994}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e414af0dd7dd0074a83f9f89e7b577ba, type: 2}
+  - {fileID: 2100000, guid: c51bac8f8e87a084caac1376f41cafb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,26 +85,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5199153513233267654
+--- !u!135 &166462213315526556
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
+  m_GameObject: {fileID: 5975936448781423994}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &9213105437626955118
+--- !u!54 &7329614334671485983
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
+  m_GameObject: {fileID: 5975936448781423994}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -115,19 +114,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7456288116355836331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8380415941967237479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3d70d240e5d914bbb1b644943a049a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifeTime: 5
-  projectile: {fileID: 8380415941967237479}
-  rb: {fileID: 9213105437626955118}

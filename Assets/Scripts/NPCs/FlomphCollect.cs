@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FlomphCollect : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class FlomphCollect : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            PlayerPrefs.SetInt("Dialgoue Level", 1);
             SceneManager.LoadScene("MainHub");
 
         }

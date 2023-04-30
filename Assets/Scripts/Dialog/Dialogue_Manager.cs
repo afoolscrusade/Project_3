@@ -14,6 +14,10 @@ public class Dialogue_Manager : MonoBehaviour
     private Queue<string> sentences;
     private Queue<string> newSentences;
 
+    ThirdPersonMovement attack;
+    Dialogue_Trigger npcAnimation;
+
+
 
   
 
@@ -22,12 +26,12 @@ public class Dialogue_Manager : MonoBehaviour
     {
         sentences = new Queue<string>();
         newSentences = new Queue<string>();
-        
+        attack = FindObjectOfType<ThirdPersonMovement>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-
+       //dialogueNumber.audioNumber += 1;
         nameText.text = dialogue.name;
         
 
@@ -45,6 +49,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void StartNewDialogue(Dialogue dialogue)
     {
+        //dialogueNumber.audioNumber = 0;
         nameText.text = dialogue.name;
 
         newSentences.Clear();
@@ -59,7 +64,8 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        //dialogueNumber.audioNumber += 1;
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -67,16 +73,18 @@ public class Dialogue_Manager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
-   
     }
 
     public void DisplayNextNewSentence()
     {
         if(newSentences.Count == 0)
         {
+            FindObjectOfType<Dialogue_Trigger>().StopAnimation();
             EndDialogue();
             return;
         }
+        //dialogueNumber.audioNumber += 1;
+
         string newSentence = newSentences.Dequeue();
         dialogueText.text = newSentence;
     }
@@ -85,8 +93,9 @@ public class Dialogue_Manager : MonoBehaviour
     {
         Debug.Log("End");
         dialogueBox.SetActive(false);
-        
-
+        attack.canAttack = true;
+        //npcAnimation.animator.SetBool("isTalking", false);
+        //dialogueNumber.audioNumber = 0;
     }
 
 }

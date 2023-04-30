@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 44fe1de18aa47314cb23551052792a3e
+guid: 5538f9c74e46ba846895cc60800065c0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -17,10 +17,7 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'mixamorig:LeftLeg'
-      : position error = 9.655351 mm\n\t'mixamorig:RightUpLeg' : position error =
-      2.369312 mm\n\t'mixamorig:RightLeg' : position error = 9.548371 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -36,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Sad
+      name: Idle
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 120
+      lastFrame: 298
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -612,11 +609,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 5538f9c74e46ba846895cc60800065c0, type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

@@ -23,9 +23,13 @@ public class EnemyAi : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    //public GameObject projectile;
     public Transform projectileSpawn;
     public float cooldown = 10f;
+    public GameObject enemyBullet;
+    private float bulletTime;
+    public float bulletSpeed;
+
 
     //States
     public float sightRange, attackRange;
@@ -38,7 +42,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -87,6 +91,8 @@ public class EnemyAi : MonoBehaviour
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
+        transform.LookAt(player);
+
 
 
         if (!alreadyAttacked)
@@ -94,8 +100,9 @@ public class EnemyAi : MonoBehaviour
             ///Attack code here
             if (enemyID == 1)
             {
-                transform.LookAt(player);
-                Instantiate(projectile, projectileSpawn.transform);
+
+                ShootAtPlayer();
+                //Instantiate(projectile, projectileSpawn.transform.position, projectileSpawn.transform.rotation);
                 alreadyAttacked = true;
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
@@ -105,13 +112,21 @@ public class EnemyAi : MonoBehaviour
         }
         if (enemyID == 0)
         {
-            transform.LookAt(player);
+            //transform.LookAt(player);
             agent.SetDestination(player.position);
             if (!playerInSightRange)
             {
                 Patroling();
             }
         }
+    }
+
+    void ShootAtPlayer()
+    {
+        GameObject bulletObj = Instantiate(enemyBullet, projectileSpawn.transform.position, projectileSpawn.transform.rotation) as GameObject;
+        Rigidbody bulletRig = bulletObj.GetComponent<Rigidbody>();
+        bulletRig.AddForce(bulletRig.transform.forward * bulletSpeed);
+        Destroy(bulletObj, 5f);
     }
     private void ResetAttack()
     {

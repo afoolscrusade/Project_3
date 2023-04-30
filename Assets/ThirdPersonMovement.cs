@@ -38,7 +38,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public bool isJump;
 
     //player Attack
-    public bool CanAttack;
+    public bool canAttack;
     public float AttackCooldown = 0.05f;
     public float attackCooldownNormal = 3f;
     public GameObject projectile;
@@ -80,6 +80,15 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+
+    //Audio
+    public AudioSource audioSource;
+    public AudioSource levelFootsteps;
+    public AudioClip potionDrink;
+    public AudioClip fireballSound;
+
+    // Saving
+    public int levelSaved;
     private void Awake()
     {
         maxHealth = 10;
@@ -89,6 +98,7 @@ public class ThirdPersonMovement : MonoBehaviour
         enemiesKilled = 0;
         bossBoarKilled = false;
         crystalsCollected = 0;
+        canAttack = true;
 
         //Potions
         SetCurrentHP();
@@ -139,13 +149,13 @@ public class ThirdPersonMovement : MonoBehaviour
         }
 
         //fireball attack
-        if (Input.GetButtonDown("Fire1") && currentMana > 0)
+        if (Input.GetButtonDown("Fire1") && currentMana > 0 && canAttack == true)
         {
             FireballAttack();
             chargeTime = 0;
             UpdateMana(-1);
         }
-        else if (Input.GetButtonUp("Fire1") && chargeTime >= 2 && currentMana > 4)
+        else if (Input.GetButtonUp("Fire1") && chargeTime >= 2 && currentMana > 4 && canAttack == true)
         {
             ReleaseCharge();
             UpdateMana(-5);
@@ -172,6 +182,7 @@ public class ThirdPersonMovement : MonoBehaviour
         //Potions use
         if ((Input.GetKeyDown(KeyCode.Y) || Input.GetButtonDown("Usehealth")) && HealthP > 0 && currentHealth < maxHealth)
         {
+            audioSource.PlayOneShot(potionDrink);
             HealthP -= 1;
             SetCurrentHP();
             UpdateHealth(+5);
@@ -179,6 +190,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown("Usemana")) && ManaP > 0 && currentMana < maxMana)
         {
+            audioSource.PlayOneShot(potionDrink);
             ManaP -= 1;
             SetCurrentMP();
             UpdateMana(+5);
@@ -189,10 +201,12 @@ public class ThirdPersonMovement : MonoBehaviour
         if (horizontalInput != 0 || verticalInput != 0)
         {
             animator.SetBool("isWalking", true);
+            levelFootsteps.Play();
         }
         if (horizontalInput == 0 && verticalInput == 0)
         {
             animator.SetBool("isWalking", false);
+            levelFootsteps.Stop();
         }
 
         /*if (isGrounded == false && isJump == true)
@@ -250,6 +264,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         //new fireball shooting
         animator.SetTrigger("attack");
+        audioSource.PlayOneShot(fireballSound);
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
@@ -282,6 +297,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         //new fireballattack
         animator.SetTrigger("strongAttack");
+        audioSource.PlayOneShot(fireballSound);
         Ray ray = camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 

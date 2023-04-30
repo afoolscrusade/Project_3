@@ -18495,15 +18495,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11846093
+      value: 0.11846094
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0035990893
+      value: -0.0035990821
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00042937763
+      value: 0.00042937684
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287767624309, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_Name
@@ -18587,11 +18587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289414710873, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00361233
+      value: -0.0036122946
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289414710873, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0002983591
+      value: 0.0002983562
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
@@ -30175,6 +30175,10 @@ PrefabInstance:
       propertyPath: crystalCountText
       value: 
       objectReference: {fileID: 976874540}
+    - target: {fileID: 796013764834263870, guid: f530b011b8d315541a5053220079ce46, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f78e2fc85c1fa04d809d1a4986f6a70, type: 3}
     - target: {fileID: 796013765557634856, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: m_Name
       value: Player (1)
