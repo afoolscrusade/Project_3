@@ -83,7 +83,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     //Audio
     public AudioSource audioSource;
-    public AudioSource levelFootsteps;
+    public AudioClip levelFootsteps;
     public AudioClip potionDrink;
     public AudioClip fireballSound;
 
@@ -209,12 +209,12 @@ public class ThirdPersonMovement : MonoBehaviour
         if (horizontalInput != 0 || verticalInput != 0)
         {
             animator.SetBool("isWalking", true);
-            levelFootsteps.Play();
+            //audioSource.PlayOneShot(levelFootsteps);
         }
         if (horizontalInput == 0 && verticalInput == 0)
         {
             animator.SetBool("isWalking", false);
-            levelFootsteps.Stop();
+            //audioSource.Stop();
         }
 
         /*if (isGrounded == false && isJump == true)
