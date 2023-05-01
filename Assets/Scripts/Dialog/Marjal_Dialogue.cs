@@ -3,41 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Dialogue_Trigger : MonoBehaviour
+public class Marjal_Dialogue : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public GameObject levelOneObject;
+
     public GameObject levelTwoObject;
-    public GameObject levelThreeObject;
-    public int dialogueSelected;
+
+
     public int audioNumber;
 
     public AudioSource audioSource;
     public AudioClip dialogueAudio1;
     public AudioClip dialogueAudio2;
     public AudioClip dialogueAudio3;
+    public AudioClip dialogueAudio4;
     public Animator animator;
 
     ThirdPersonMovement attack;
 
 
-    public int FlomphLevel;
-    public int MorjalLevel;
-    public int ZoeLevel;
+
+    public int MarjalLevel;
+
 
 
     void Start()
     {
-        levelOneObject.SetActive(false);
+
         levelTwoObject.SetActive(false);
-        levelThreeObject.SetActive(false);
+
         attack = FindObjectOfType<ThirdPersonMovement>();
-        //PlayerPrefs.SetInt("Dialgoue Level", 1);
-        //dialogueSelected = PlayerPrefs.GetInt("Dialgoue Level");
+
+        MarjalLevel = PlayerPrefs.GetInt("MarjalLevel");
+
     }
     private void Update()
     {
+
         //NPC Interact
         if (Input.GetKeyDown("x") || Input.GetButtonDown("Interact"))
         {
@@ -67,81 +70,38 @@ public class Dialogue_Trigger : MonoBehaviour
                 audioSource.PlayOneShot(dialogueAudio2);
                 audioNumber = 0;
             }
-            //animator.SetBool("isTalking", false);
 
-
-        /*if (audioNumber == 2 && dialogueSelected == 0)
-        {
-            audioSource.PlayOneShot(dialogueAudio2);
-        }*/
 
 
     }
     public void TriggerDialogue()
     {
         attack.canAttack = false;
-        if (audioNumber == 0 && dialogueSelected == 0)
+        if (audioNumber == 0 && MarjalLevel == 0)
         {
             audioSource.PlayOneShot(dialogueAudio1);
             audioNumber += 1;
-        }
+        
+            FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);          
+
+            levelTwoObject.SetActive(true);
 
 
-        if (dialogueSelected == 0)
-        {
-            FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
-
-            if (GetComponent<Collider>().CompareTag("Flomph"))
-            {
-
-                levelOneObject.SetActive(true);
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Marjal"))
-            {
-
-                levelTwoObject.SetActive(true);
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Zoe"))
-            {
-                
-            }
         }
 
 
     }
     public void NewTriggerDialogue()
     {
-        if (audioNumber == 0 && dialogueSelected == 1)
+        if (audioNumber == 0 && MarjalLevel == 1)
         {
             audioSource.PlayOneShot(dialogueAudio3);
-        }
 
-        if (dialogueSelected == 1)
-        {
+
             FindObjectOfType<Dialogue_Manager>().StartNewDialogue(dialogue);
 
-            if (GetComponent<Collider>().CompareTag("Flomph"))
-            {
 
-                
 
-            }
-
-            if (GetComponent<Collider>().CompareTag("Marjal"))
-            {
-
-                
-
-            }
-
-            if (GetComponent<Collider>().CompareTag("Zoe"))
-            {
-                levelThreeObject.SetActive(true);
-            }
         }
     }
 

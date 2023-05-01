@@ -33,7 +33,10 @@ public class Tutorial_Dialogue : MonoBehaviour
         //dialogueSelected = PlayerPrefs.GetInt("Dialgoue Level");
 
         PlayerPrefs.SetInt("GoToMainHub", 0);
-        
+        PlayerPrefs.SetInt("FlomphLevel", 0);
+        PlayerPrefs.SetInt("MarjalLevel", 0);
+        PlayerPrefs.SetInt("ZoeLevel", 0);
+
     }
     private void Update()
     {

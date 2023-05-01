@@ -16,7 +16,7 @@ public class Dialogue_Manager : MonoBehaviour
     private Queue<string> thirdSentences;
 
     ThirdPersonMovement attack;
-    Dialogue_Trigger npcAnimation;
+    //Dialogue_Trigger npcAnimation;
 
 
 
@@ -96,7 +96,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         if(newSentences.Count == 0)
         {
-            FindObjectOfType<Dialogue_Trigger>().StopAnimation();
+            //FindObjectOfType<Dialogue_Trigger>().StopAnimation();
             EndDialogue();
             return;
         }
@@ -110,7 +110,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         if(thirdSentences.Count == 0)
         {
-            FindObjectOfType<Dialogue_Trigger>().StopAnimation();
+            //FindObjectOfType<Dialogue_Trigger>().StopAnimation();
             EndDialogue();
             return;
         }

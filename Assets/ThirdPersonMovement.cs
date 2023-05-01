@@ -237,11 +237,13 @@ public class ThirdPersonMovement : MonoBehaviour
         if (enemiesKilled >= 10 && bossBoarKilled == true)
         {
             SceneManager.LoadScene("MainHub");
+            PlayerPrefs.SetInt("MarjalLevel", 1);
         }
 
         if (crystalsCollected == 4)
         {
             SceneManager.LoadScene("MainHub");
+            PlayerPrefs.SetInt("ZoeLevel", 2);
         }
     }
 
