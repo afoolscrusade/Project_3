@@ -23,10 +23,12 @@ public class FireballScript : MonoBehaviour
         if (other.tag == "Enemy")
         {
             enemyHealth.TakeDamage(1);
+            
         }
         Debug.Log(other);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
+
 
     void DestroyFireball()
     {

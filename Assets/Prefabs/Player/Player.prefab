@@ -68,7 +68,7 @@ MonoBehaviour:
     m_Bits: 128
   isGrounded: 0
   isJump: 0
-  CanAttack: 0
+  canAttack: 0
   AttackCooldown: 0.05
   attackCooldownNormal: 3
   projectile: {fileID: 2725844964869624057, guid: 97098497e359e9e4389779088b556c08, type: 3}
@@ -95,6 +95,7 @@ MonoBehaviour:
   levelFootsteps: {fileID: 796013764834263870}
   potionDrink: {fileID: 8300000, guid: fe93d5db8af77f644bf3464f94f5910b, type: 3}
   fireballSound: {fileID: 8300000, guid: 3c534941862d62348b730ee70a5d0580, type: 3}
+  levelSaved: 0
 --- !u!136 &796013764144953037
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -356,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796013764218805311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2680016, y: 2.06, z: 1.5380001}
+  m_LocalPosition: {x: 0.14, y: 4.04, z: 2.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
