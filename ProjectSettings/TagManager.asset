@@ -21,6 +21,7 @@ TagManager:
   - Level1Complete
   - Aquarica
   - HubSpawn
+  - OutSpawn
   layers:
   - Default
   - TransparentFX

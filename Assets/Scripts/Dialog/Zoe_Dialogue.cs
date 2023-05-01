@@ -120,6 +120,7 @@ public class Zoe_Dialogue: MonoBehaviour
             FindObjectOfType<Dialogue_Manager>().StartThirdDialogue(dialogue);
             button1.SetActive(false);
             PlayerPrefs.SetInt("ZoeLevel", 0);
+            PlayerPrefs.SetInt("AquaricaLevel", 1);
 
         }
     }

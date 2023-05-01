@@ -386,6 +386,10 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("OutSpawn"))
+        {
+            SceneManager.LoadScene("OutroScene");
+        }
         if (other.CompareTag("HubSpawn"))
         {
             SceneManager.LoadScene("MainHub");

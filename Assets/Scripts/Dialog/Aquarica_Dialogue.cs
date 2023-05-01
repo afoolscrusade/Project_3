@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tutorial_Dialogue : MonoBehaviour
+public class Aquarica_Dialogue : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    public GameObject MainHubObject;
-    public int GoToMainHub;
+    public GameObject OutObject;
 
-    public int dialogueSelected;
+
+ 
     public int audioNumber;
 
     public AudioSource audioSource;
@@ -20,29 +20,21 @@ public class Tutorial_Dialogue : MonoBehaviour
     public Animator animator;
 
     ThirdPersonMovement attack;
-    Dummies dummy;
+
+    public int AquaricaLevel;
+ 
+
 
 
     void Start()
     {
-        MainHubObject.SetActive(false);
-        dummy = FindObjectOfType<Dummies>();
-
         attack = FindObjectOfType<ThirdPersonMovement>();
-        //PlayerPrefs.SetInt("Dialgoue Level", 1);
-        //dialogueSelected = PlayerPrefs.GetInt("Dialgoue Level");
-
-        PlayerPrefs.SetInt("GoToMainHub", 0);
-        PlayerPrefs.SetInt("FlomphLevel", 0);
-        PlayerPrefs.SetInt("MarjalLevel", 0);
-        PlayerPrefs.SetInt("ZoeLevel", 0);
-        PlayerPrefs.SetInt("AquaricaLevel", 0);
-
+        AquaricaLevel = PlayerPrefs.GetInt("AquaricaLevel");
+        OutObject.SetActive(false);
     }
     private void Update()
     {
-        
-        GoToMainHub = PlayerPrefs.GetInt("GoToMainHub");
+
         //NPC Interact
         if (Input.GetKeyDown("x") || Input.GetButtonDown("Interact"))
         {
@@ -59,14 +51,14 @@ public class Tutorial_Dialogue : MonoBehaviour
 
                     animator.SetBool("isTalking", true);
                     audioNumber = 0;
-                    TutorialTriggerDialogue();
-                    TutorialNewTriggerDialogue();
+                    TriggerDialogue();
+                    NewTriggerDialogue();
                     
                 }
         }
     }
 
-    public void TutorialNextDialgoueAudio()
+    public void NextDialgoueAudio()
     {
 
             if (audioNumber == 1)
@@ -74,65 +66,45 @@ public class Tutorial_Dialogue : MonoBehaviour
                 audioSource.PlayOneShot(dialogueAudio2);
                 audioNumber = 0;
             }
-            //animator.SetBool("isTalking", false);
 
-
-        /*if (audioNumber == 2 && dialogueSelected == 0)
-        {
-            audioSource.PlayOneShot(dialogueAudio2);
-        }*/
 
 
     }
-    public void TutorialTriggerDialogue()
+    public void TriggerDialogue()
     {
         attack.canAttack = false;
-        if (audioNumber == 0 && GoToMainHub == 0)
+        if (audioNumber == 0 && AquaricaLevel == 0)
         {
             audioSource.PlayOneShot(dialogueAudio1);
-            audioNumber += 1;
-        }
+            
 
-
-        if (GoToMainHub == 0)
-        {
             FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
-
-            if (GetComponent<Collider>().CompareTag("Aquarica"))
-            {
-                
-            }
-
         }
 
 
+
+
     }
-    public void TutorialNewTriggerDialogue()
+    public void NewTriggerDialogue()
     {
-        if (audioNumber == 0 && GoToMainHub == 1)
+        if (audioNumber == 0 && AquaricaLevel == 1)
         {
-            audioSource.PlayOneShot(dialogueAudio3);
-        }
+            audioSource.PlayOneShot(dialogueAudio2);
 
-        if (GoToMainHub == 1)
-        {
             FindObjectOfType<Dialogue_Manager>().StartNewDialogue(dialogue);
+            Invoke("SendToOut", 5);
 
-            if (GetComponent<Collider>().CompareTag("Aquarica"))
-            {
-                Invoke("SendToGame", 2);
-            }
         }
     }
 
-    public void TutorialStopAnimation()
+    public void StopAnimation()
     {
         animator.SetBool("isTalking", false);
     }
 
-    void SendToGame()
+    void SendToOut()
     {
-        MainHubObject.SetActive(true);
+        OutObject.SetActive(true);
     }
 
 }
