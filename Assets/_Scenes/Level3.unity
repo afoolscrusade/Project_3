@@ -18551,15 +18551,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11846093
+      value: 0.11846094
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0035990893
+      value: -0.0035990821
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00042937763
+      value: 0.00042937684
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287767624309, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_Name
@@ -30302,6 +30302,10 @@ PrefabInstance:
       propertyPath: levelFootsteps
       value: 
       objectReference: {fileID: 8300000, guid: 3f78e2fc85c1fa04d809d1a4986f6a70, type: 3}
+    - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
+      propertyPath: chargedFireball
+      value: 
+      objectReference: {fileID: 2725844964869624057, guid: 36d1a9ca24f5af84e85e3cd2804b95f9, type: 3}
     - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: crystalCountText
       value: 

@@ -1138,7 +1138,6 @@ MonoBehaviour:
       as a full wizard"
     thirdSentences: []
   OutObject: {fileID: 457079952}
-  dialogueSelected: 0
   audioNumber: 0
   audioSource: {fileID: 167209780}
   dialogueAudio1: {fileID: 8300000, guid: 13cd49ca3a21b18428b769e072a721d4, type: 3}
@@ -14020,6 +14019,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1406772159}
     - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
+      propertyPath: chargedFireball
+      value: 
+      objectReference: {fileID: 2725844964869624057, guid: 36d1a9ca24f5af84e85e3cd2804b95f9, type: 3}
+    - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: crystalCountText
       value: 
       objectReference: {fileID: 2005623066}
@@ -14827,11 +14830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5893562542983627328, guid: 42bd32e9463ade74fb89701d74edb323, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003422576
+      value: 0.000000034225764
       objectReference: {fileID: 0}
     - target: {fileID: 5893562542983627328, guid: 42bd32e9463ade74fb89701d74edb323, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000035827075
+      value: -0.000000003582708
       objectReference: {fileID: 0}
     - target: {fileID: 5893562542983627328, guid: 42bd32e9463ade74fb89701d74edb323, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15124,15 +15127,15 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: dd2b9c789e6bf5545af486829e2e39a4, type: 3}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12218327
+      value: 0.12218328
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 5.297979e-17
+      value: 0.000000012252035
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287614458969, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.4893547e-16
+      value: -0.000000001508294
       objectReference: {fileID: 0}
     - target: {fileID: 6904884287767624309, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_Name
@@ -15192,11 +15195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289412526742, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017112876
+      value: 0.00000001711288
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289412526742, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017913538
+      value: -0.0000000017913542
       objectReference: {fileID: 0}
     - target: {fileID: 6904884289414710873, guid: a73ba05ebdc34194198d31b022d3deb7, type: 3}
       propertyPath: m_LocalRotation.y

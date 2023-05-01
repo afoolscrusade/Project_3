@@ -8515,6 +8515,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 944332025}
     - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
+      propertyPath: chargedFireball
+      value: 
+      objectReference: {fileID: 2725844964869624057, guid: 36d1a9ca24f5af84e85e3cd2804b95f9, type: 3}
+    - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: enemiesKilledText
       value: 
       objectReference: {fileID: 267853165}

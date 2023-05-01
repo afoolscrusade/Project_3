@@ -244,6 +244,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             SceneManager.LoadScene("MainHub");
             PlayerPrefs.SetInt("ZoeLevel", 2);
+            PlayerPrefs.SetInt("AquaricaLevel", 1);
         }
     }
 
