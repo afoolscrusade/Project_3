@@ -10,10 +10,14 @@ public class MainMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject mainMenuUI;
 
-    public AudioMixer audioMixer;
+    public AudioMixer mixer;
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("IntroScene");
+    }
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("MainHub");
     }
 
     public void QuitGame ()
@@ -37,6 +41,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetVolume (float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        mixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("Master Volume", volume);
     }
 }

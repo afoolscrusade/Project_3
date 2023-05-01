@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -10,16 +11,17 @@ public class OptionsMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     
-    public AudioMixer audioMixer;
+    public AudioMixer mixer;
 
     public GameObject dialogueBox;
 
     public void SetVolume (float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        mixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("Master Volume", volume);
     }
-        
-        
+
+
     void Update()
     {
         if(Input.GetButtonDown("Pause"))
@@ -84,6 +86,11 @@ public class OptionsMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
 
+    }
+
+    public void Hub()
+    {
+        SceneManager.LoadScene("MainHub");
     }
 
     public void QuitGame()

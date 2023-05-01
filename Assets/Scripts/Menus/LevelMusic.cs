@@ -12,6 +12,7 @@ public class LevelMusic : MonoBehaviour
     {
         audioSource.PlayOneShot(levelMusic);
         audioSource.PlayOneShot(levelAmbience);
+
     }
 
     // Update is called once per frame

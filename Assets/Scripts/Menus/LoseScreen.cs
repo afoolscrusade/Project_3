@@ -15,6 +15,15 @@ public class LoseScreen : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }    
+    public void Hub()
+    {
+        SceneManager.LoadScene("MainHub");
+    }
+
     public void QuitGame ()
     {
         Debug.Log("Quit");

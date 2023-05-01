@@ -273,7 +273,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!82 &543450652331625155
@@ -286,7 +286,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: af6b37cee2764834cba33ad6513aa0b2, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8d267ffa74b8254479b29701bc9e1dea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e255ca20590cd7f44ab1729f99cef721, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
