@@ -71,16 +71,9 @@ public class Tutorial_Dialogue : MonoBehaviour
 
             if (audioNumber == 1)
             {
-                audioSource.PlayOneShot(dialogueAudio2);
+                //audioSource.PlayOneShot(dialogueAudio2);
                 audioNumber = 0;
             }
-            //animator.SetBool("isTalking", false);
-
-
-        /*if (audioNumber == 2 && dialogueSelected == 0)
-        {
-            audioSource.PlayOneShot(dialogueAudio2);
-        }*/
 
 
     }
@@ -89,39 +82,21 @@ public class Tutorial_Dialogue : MonoBehaviour
         attack.canAttack = false;
         if (audioNumber == 0 && GoToMainHub == 0)
         {
-            audioSource.PlayOneShot(dialogueAudio1);
-            audioNumber += 1;
-        }
+            //audioSource.PlayOneShot(dialogueAudio1);
 
-
-        if (GoToMainHub == 0)
-        {
             FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
-
-            if (GetComponent<Collider>().CompareTag("Aquarica"))
-            {
-                
-            }
-
         }
-
 
     }
     public void TutorialNewTriggerDialogue()
     {
         if (audioNumber == 0 && GoToMainHub == 1)
         {
-            audioSource.PlayOneShot(dialogueAudio3);
-        }
+            //audioSource.PlayOneShot(dialogueAudio3);
 
-        if (GoToMainHub == 1)
-        {
             FindObjectOfType<Dialogue_Manager>().StartNewDialogue(dialogue);
 
-            if (GetComponent<Collider>().CompareTag("Aquarica"))
-            {
                 Invoke("SendToGame", 2);
-            }
         }
     }
 

@@ -2143,7 +2143,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 25
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -8514,6 +8514,10 @@ PrefabInstance:
       propertyPath: HealthPText
       value: 
       objectReference: {fileID: 944332025}
+    - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
+      propertyPath: fireballSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f0fe1ac658d75ca479397a5fc3c0a643, type: 3}
     - target: {fileID: 796013764144953036, guid: f530b011b8d315541a5053220079ce46, type: 3}
       propertyPath: chargedFireball
       value: 

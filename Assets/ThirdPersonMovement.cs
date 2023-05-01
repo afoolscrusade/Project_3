@@ -426,6 +426,10 @@ public class ThirdPersonMovement : MonoBehaviour
             crystalsCollected += 1; // Set to 0.5 due to weird doubling bug
             SetCurrentCrystals();
         }
+        if (other.CompareTag("KillZone"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
 
     
     }
